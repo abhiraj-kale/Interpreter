@@ -28,7 +28,7 @@ Each component is modular and easy to extend with new features like grouping, fu
 A Windows .exe is available in the v0.1.0 Pre-release.
 
 Download:
-➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.0)
+➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.1)
 
 ## Installation
 
