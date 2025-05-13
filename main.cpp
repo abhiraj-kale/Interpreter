@@ -18,7 +18,7 @@ int main() {
 
         Parser parser(tokens);
         ExprPtr expression = parser.parseExpr();
-
+        
         interpreter.interpret({ expression });
     }
 

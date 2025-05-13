@@ -3,6 +3,6 @@
 
 void Interpreter::interpret(const std::vector<ExprPtr>& expressions) {
     for (const auto& expr : expressions) {
-        std::cout << expr->evaluate() << std::endl;
+        std::cout << expr->evaluate(environment) << std::endl;
     }
 }

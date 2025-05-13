@@ -7,6 +7,7 @@ enum class TokenType {
     // Single-character tokens
     LEFT_PAREN, RIGHT_PAREN,
     PLUS, MINUS, STAR, SLASH,
+    EQUAL,
 
     // Literals
     IDENTIFIER, STRING, NUMBER,

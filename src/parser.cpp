@@ -8,7 +8,24 @@ ExprPtr Parser::parseExpr() {
 }
 
 ExprPtr Parser::expression() {
-    return term();
+    return assignment();
+}
+
+ExprPtr Parser::assignment() {
+    ExprPtr expr = term();
+
+    if (match(TokenType::EQUAL)) {
+        Token equals = previous();
+        ExprPtr value = assignment();
+
+        if (auto var = std::dynamic_pointer_cast<Variable>(expr)) {
+            return std::make_shared<Assign>(var->name, value);
+        }
+
+        throw std::runtime_error("Invalid assignment target.");
+    }
+
+    return expr;
 }
 
 ExprPtr Parser::term() {
@@ -41,6 +58,10 @@ ExprPtr Parser::primary() {
         return std::make_shared<Literal>(value);
     }
 
+    if (match(TokenType::IDENTIFIER)) {
+        return std::make_shared<Variable>(previous().lexeme);
+    }
+
     throw std::runtime_error("Expected expression.");
 }
 
@@ -68,10 +89,9 @@ bool Parser::isAtEnd() {
     return peek().type == TokenType::END_OF_FILE;
 }
 
-// === Binary Expression Evaluation ===
-double Binary::evaluate() {
-    double leftVal = left->evaluate();
-    double rightVal = right->evaluate();
+double Binary::evaluate(std::unordered_map<std::string, double>& env) {
+    double leftVal = left->evaluate(env);
+    double rightVal = right->evaluate(env);
 
     switch (op.type) {
         case TokenType::PLUS: return leftVal + rightVal;
