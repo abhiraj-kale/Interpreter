@@ -12,10 +12,14 @@ enum class TokenType {
     // Literals
     IDENTIFIER, STRING, NUMBER,
 
-    // Keywords
-    PRINT,
+    // Keywords 
+    SEMICOLON, 
+    LET,
+    VAR,        
+    PRINT,      
 
-    END_OF_FILE
+    END_OF_FILE,
+    EOF_TOKEN
 };
 
 class Token {

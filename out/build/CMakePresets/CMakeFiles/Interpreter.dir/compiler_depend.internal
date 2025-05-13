@@ -3,9 +3,11 @@
 
 CMakeFiles/Interpreter.dir/main.cpp.obj
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/main.cpp
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/expr.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/interpreter.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/parser.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/scanner.hpp
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/stmt.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/token.hpp
  D:/MinGW/include/c++/13.2.0/any
  D:/MinGW/include/c++/13.2.0/backward/auto_ptr.h
@@ -27,12 +29,16 @@ CMakeFiles/Interpreter.dir/main.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/cpp_type_traits.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_forced.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h
+ D:/MinGW/include/c++/13.2.0/bits/enable_special_members.h
+ D:/MinGW/include/c++/13.2.0/bits/erase_if.h
  D:/MinGW/include/c++/13.2.0/bits/exception.h
  D:/MinGW/include/c++/13.2.0/bits/exception_defines.h
  D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h
  D:/MinGW/include/c++/13.2.0/bits/functexcept.h
  D:/MinGW/include/c++/13.2.0/bits/functional_hash.h
  D:/MinGW/include/c++/13.2.0/bits/hash_bytes.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable_policy.h
  D:/MinGW/include/c++/13.2.0/bits/invoke.h
  D:/MinGW/include/c++/13.2.0/bits/ios_base.h
  D:/MinGW/include/c++/13.2.0/bits/istream.tcc
@@ -46,6 +52,7 @@ CMakeFiles/Interpreter.dir/main.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/move.h
  D:/MinGW/include/c++/13.2.0/bits/nested_exception.h
  D:/MinGW/include/c++/13.2.0/bits/new_allocator.h
+ D:/MinGW/include/c++/13.2.0/bits/node_handle.h
  D:/MinGW/include/c++/13.2.0/bits/ostream.tcc
  D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h
  D:/MinGW/include/c++/13.2.0/bits/postypes.h
@@ -75,6 +82,7 @@ CMakeFiles/Interpreter.dir/main.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/string_view.tcc
  D:/MinGW/include/c++/13.2.0/bits/stringfwd.h
  D:/MinGW/include/c++/13.2.0/bits/unique_ptr.h
+ D:/MinGW/include/c++/13.2.0/bits/unordered_map.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator_args.h
  D:/MinGW/include/c++/13.2.0/bits/utility.h
@@ -117,6 +125,7 @@ CMakeFiles/Interpreter.dir/main.cpp.obj
  D:/MinGW/include/c++/13.2.0/tuple
  D:/MinGW/include/c++/13.2.0/type_traits
  D:/MinGW/include/c++/13.2.0/typeinfo
+ D:/MinGW/include/c++/13.2.0/unordered_map
  D:/MinGW/include/c++/13.2.0/vector
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h
@@ -176,10 +185,9 @@ CMakeFiles/Interpreter.dir/main.cpp.obj
 
 CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/src/interpreter.cpp
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/expr.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/interpreter.hpp
- C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/parser.hpp
- C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/token.hpp
- D:/MinGW/include/c++/13.2.0/any
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/stmt.hpp
  D:/MinGW/include/c++/13.2.0/backward/auto_ptr.h
  D:/MinGW/include/c++/13.2.0/backward/binders.h
  D:/MinGW/include/c++/13.2.0/bit
@@ -199,12 +207,16 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/cpp_type_traits.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_forced.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h
+ D:/MinGW/include/c++/13.2.0/bits/enable_special_members.h
+ D:/MinGW/include/c++/13.2.0/bits/erase_if.h
  D:/MinGW/include/c++/13.2.0/bits/exception.h
  D:/MinGW/include/c++/13.2.0/bits/exception_defines.h
  D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h
  D:/MinGW/include/c++/13.2.0/bits/functexcept.h
  D:/MinGW/include/c++/13.2.0/bits/functional_hash.h
  D:/MinGW/include/c++/13.2.0/bits/hash_bytes.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable_policy.h
  D:/MinGW/include/c++/13.2.0/bits/invoke.h
  D:/MinGW/include/c++/13.2.0/bits/ios_base.h
  D:/MinGW/include/c++/13.2.0/bits/istream.tcc
@@ -218,6 +230,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/move.h
  D:/MinGW/include/c++/13.2.0/bits/nested_exception.h
  D:/MinGW/include/c++/13.2.0/bits/new_allocator.h
+ D:/MinGW/include/c++/13.2.0/bits/node_handle.h
  D:/MinGW/include/c++/13.2.0/bits/ostream.tcc
  D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h
  D:/MinGW/include/c++/13.2.0/bits/postypes.h
@@ -247,6 +260,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/string_view.tcc
  D:/MinGW/include/c++/13.2.0/bits/stringfwd.h
  D:/MinGW/include/c++/13.2.0/bits/unique_ptr.h
+ D:/MinGW/include/c++/13.2.0/bits/unordered_map.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator_args.h
  D:/MinGW/include/c++/13.2.0/bits/utility.h
@@ -289,6 +303,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
  D:/MinGW/include/c++/13.2.0/tuple
  D:/MinGW/include/c++/13.2.0/type_traits
  D:/MinGW/include/c++/13.2.0/typeinfo
+ D:/MinGW/include/c++/13.2.0/unordered_map
  D:/MinGW/include/c++/13.2.0/vector
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h
@@ -348,7 +363,9 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
 
 CMakeFiles/Interpreter.dir/src/parser.cpp.obj
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/src/parser.cpp
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/expr.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/parser.hpp
+ C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/stmt.hpp
  C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/include/token.hpp
  D:/MinGW/include/c++/13.2.0/any
  D:/MinGW/include/c++/13.2.0/backward/auto_ptr.h
@@ -370,12 +387,16 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/cpp_type_traits.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_forced.h
  D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h
+ D:/MinGW/include/c++/13.2.0/bits/enable_special_members.h
+ D:/MinGW/include/c++/13.2.0/bits/erase_if.h
  D:/MinGW/include/c++/13.2.0/bits/exception.h
  D:/MinGW/include/c++/13.2.0/bits/exception_defines.h
  D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h
  D:/MinGW/include/c++/13.2.0/bits/functexcept.h
  D:/MinGW/include/c++/13.2.0/bits/functional_hash.h
  D:/MinGW/include/c++/13.2.0/bits/hash_bytes.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable.h
+ D:/MinGW/include/c++/13.2.0/bits/hashtable_policy.h
  D:/MinGW/include/c++/13.2.0/bits/invoke.h
  D:/MinGW/include/c++/13.2.0/bits/ios_base.h
  D:/MinGW/include/c++/13.2.0/bits/istream.tcc
@@ -389,6 +410,7 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/move.h
  D:/MinGW/include/c++/13.2.0/bits/nested_exception.h
  D:/MinGW/include/c++/13.2.0/bits/new_allocator.h
+ D:/MinGW/include/c++/13.2.0/bits/node_handle.h
  D:/MinGW/include/c++/13.2.0/bits/ostream.tcc
  D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h
  D:/MinGW/include/c++/13.2.0/bits/postypes.h
@@ -418,6 +440,7 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj
  D:/MinGW/include/c++/13.2.0/bits/string_view.tcc
  D:/MinGW/include/c++/13.2.0/bits/stringfwd.h
  D:/MinGW/include/c++/13.2.0/bits/unique_ptr.h
+ D:/MinGW/include/c++/13.2.0/bits/unordered_map.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator_args.h
  D:/MinGW/include/c++/13.2.0/bits/utility.h
@@ -460,6 +483,7 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj
  D:/MinGW/include/c++/13.2.0/tuple
  D:/MinGW/include/c++/13.2.0/type_traits
  D:/MinGW/include/c++/13.2.0/typeinfo
+ D:/MinGW/include/c++/13.2.0/unordered_map
  D:/MinGW/include/c++/13.2.0/vector
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h

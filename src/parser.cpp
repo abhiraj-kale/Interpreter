@@ -1,22 +1,37 @@
 #include "parser.hpp"
 #include <stdexcept>
+#include "stmt.hpp" // Add this line to include the definition of VarStmt
 
-Parser::Parser(const std::vector<Token>& tokens) : tokens(tokens) {}
+std::shared_ptr<Stmt> Parser::parseStatement() {
+    if (match({TokenType::VAR}) || match({TokenType::LET})) {
+        std::string name = consume(TokenType::IDENTIFIER, "Expected variable name.").lexeme;
+        consume(TokenType::EQUAL, "Expected '=' after variable name.");
+        auto initializer = parseExpression();
+        consume(TokenType::SEMICOLON, "Expected ';' after variable declaration.");
+        return std::make_shared<VarStmt>(name, initializer);
+    }
 
-ExprPtr Parser::parseExpr() {
-    return expression();
+    if (match({TokenType::PRINT})) {
+        auto value = parseExpression();
+        consume(TokenType::SEMICOLON, "Expected ';' after value.");
+        return std::make_shared<PrintStmt>(value);
+    }
+
+    auto expr = parseExpression();
+    consume(TokenType::SEMICOLON, "Expected ';' after expression.");
+    return std::make_shared<ExpressionStmt>(expr);
 }
 
-ExprPtr Parser::expression() {
-    return assignment();
+std::shared_ptr<Expr> Parser::parseExpression() {
+    return parseAssignment();
 }
 
-ExprPtr Parser::assignment() {
-    ExprPtr expr = term();
+std::shared_ptr<Expr> Parser::parseAssignment() {
+    auto expr = parseEquality();
 
-    if (match(TokenType::EQUAL)) {
+    if (match({TokenType::EQUAL})) {
         Token equals = previous();
-        ExprPtr value = assignment();
+        auto value = parseAssignment();
 
         if (auto var = std::dynamic_pointer_cast<Variable>(expr)) {
             return std::make_shared<Assign>(var->name, value);
@@ -28,53 +43,73 @@ ExprPtr Parser::assignment() {
     return expr;
 }
 
-ExprPtr Parser::term() {
-    ExprPtr expr = factor();
+std::shared_ptr<Expr> Parser::parseEquality() {
+    auto expr = parseTerm();
 
-    while (match(TokenType::PLUS) || match(TokenType::MINUS)) {
+    while (match({TokenType::PLUS, TokenType::MINUS})) {
         Token op = previous();
-        ExprPtr right = factor();
-        expr = std::make_shared<Binary>(expr, op, right);
+        auto right = parseTerm();
+        expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
 
     return expr;
 }
 
-ExprPtr Parser::factor() {
-    ExprPtr expr = primary();
+std::shared_ptr<Expr> Parser::parseTerm() {
+    auto expr = parseFactor();
 
-    while (match(TokenType::STAR) || match(TokenType::SLASH)) {
+    while (match({TokenType::STAR, TokenType::SLASH})) {
         Token op = previous();
-        ExprPtr right = primary();
-        expr = std::make_shared<Binary>(expr, op, right);
+        auto right = parseFactor();
+        expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
 
     return expr;
 }
 
-ExprPtr Parser::primary() {
-    if (match(TokenType::NUMBER)) {
-        double value = std::any_cast<double>(previous().literal);
-        return std::make_shared<Literal>(value);
+std::shared_ptr<Expr> Parser::parseFactor() {
+    return parsePrimary();
+}
+
+std::shared_ptr<Expr> Parser::parsePrimary() {
+    if (match({TokenType::NUMBER})) {
+        return std::make_shared<Literal>(std::stod(previous().lexeme));
     }
 
-    if (match(TokenType::IDENTIFIER)) {
+    if (match({TokenType::IDENTIFIER})) {
         return std::make_shared<Variable>(previous().lexeme);
     }
 
     throw std::runtime_error("Expected expression.");
 }
 
-bool Parser::match(TokenType type) {
+bool Parser::match(const std::vector<TokenType>& types) {
+    for (TokenType type : types) {
+        if (check(type)) {
+            advance();
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Parser::check(TokenType type) {
     if (isAtEnd()) return false;
-    if (peek().type != type) return false;
-    advance();
-    return true;
+    return peek().type == type;
 }
 
 Token Parser::advance() {
     if (!isAtEnd()) current++;
     return previous();
+}
+
+Token Parser::consume(TokenType type, const std::string& message) {
+    if (check(type)) return advance();
+    throw std::runtime_error(message);
+}
+
+bool Parser::isAtEnd() {
+    return peek().type == TokenType::EOF_TOKEN;
 }
 
 Token Parser::peek() {
@@ -83,24 +118,4 @@ Token Parser::peek() {
 
 Token Parser::previous() {
     return tokens[current - 1];
-}
-
-bool Parser::isAtEnd() {
-    return peek().type == TokenType::END_OF_FILE;
-}
-
-double Binary::evaluate(std::unordered_map<std::string, double>& env) {
-    double leftVal = left->evaluate(env);
-    double rightVal = right->evaluate(env);
-
-    switch (op.type) {
-        case TokenType::PLUS: return leftVal + rightVal;
-        case TokenType::MINUS: return leftVal - rightVal;
-        case TokenType::STAR: return leftVal * rightVal;
-        case TokenType::SLASH:
-            if (rightVal == 0) throw std::runtime_error("Division by zero.");
-            return leftVal / rightVal;
-        default:
-            throw std::runtime_error("Invalid binary operator.");
-    }
 }

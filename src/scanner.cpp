@@ -1,5 +1,6 @@
 #include "scanner.hpp"
 #include <cctype>
+#include <stdexcept> // For std::runtime_error
 
 std::vector<Token> Scanner::scanTokens() {
     while (!isAtEnd()) {
@@ -7,7 +8,7 @@ std::vector<Token> Scanner::scanTokens() {
         scanToken();
     }
 
-    tokens.emplace_back(TokenType::END_OF_FILE, "", nullptr, line);
+    tokens.emplace_back(TokenType::END_OF_FILE, "", std::any(), line);
     return tokens;
 }
 
@@ -21,7 +22,7 @@ void Scanner::addToken(TokenType type, std::any literal) {
 }
 
 void Scanner::addToken(TokenType type) {
-    addToken(type, nullptr);
+    addToken(type, std::any());
 }
 
 char Scanner::peek() {
@@ -49,10 +50,12 @@ void Scanner::scanToken() {
         case '*': addToken(TokenType::STAR); break;
         case '/': addToken(TokenType::SLASH); break;
         case '=': addToken(TokenType::EQUAL); break;
+        case ';': addToken(TokenType::SEMICOLON); break;
         case ' ':
         case '\r':
         case '\t':
-        case '\n': break; // Ignore whitespace
+        case '\n': 
+            break; 
         default:
             if (isDigit(c)) {
                 number();
@@ -78,6 +81,15 @@ void Scanner::number() {
 
 void Scanner::identifier() {
     while (isAlphaNumeric(peek())) advance();
-    std::string name = source.substr(start, current - start);
-    addToken(TokenType::IDENTIFIER, name);
+    std::string text = source.substr(start, current - start);
+
+    if (text == "var") {
+        addToken(TokenType::VAR);
+    } else if(text == "let") {
+        addToken(TokenType::LET);
+    } else if (text == "print") {
+        addToken(TokenType::PRINT);
+    } else {
+        addToken(TokenType::IDENTIFIER, text);
+    }
 }

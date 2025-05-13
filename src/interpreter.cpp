@@ -1,8 +1,8 @@
 #include "interpreter.hpp"
-#include <iostream>
+#include "stmt.hpp"
 
-void Interpreter::interpret(const std::vector<ExprPtr>& expressions) {
-    for (const auto& expr : expressions) {
-        std::cout << expr->evaluate(environment) << std::endl;
+void Interpreter::interpret(const std::vector<std::shared_ptr<Stmt>>& statements) {
+    for (const auto& stmt : statements) {
+        stmt->execute(environment);
     }
 }
