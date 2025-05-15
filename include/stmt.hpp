@@ -1,21 +1,23 @@
-#ifndef STMT_HPP
-#define STMT_HPP
-
+#pragma once
 #include <memory>
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include <variant>
 #include "expr.hpp"
+
+using Value = std::variant<double, std::string>;
+using Environment = std::unordered_map<std::string, Value>;
 
 struct Stmt {
     virtual ~Stmt() = default;
-    virtual void execute(std::unordered_map<std::string, double>& env) = 0;
+    virtual void execute(Environment& env) = 0;
 };
 
 struct ExpressionStmt : public Stmt {
     std::shared_ptr<Expr> expression;
     ExpressionStmt(std::shared_ptr<Expr> expression) : expression(expression) {}
-    void execute(std::unordered_map<std::string, double>& env) override {
+    void execute(Environment& env) override {
         expression->evaluate(env);
     }
 };
@@ -23,8 +25,12 @@ struct ExpressionStmt : public Stmt {
 struct PrintStmt : public Stmt {
     std::shared_ptr<Expr> expression;
     PrintStmt(std::shared_ptr<Expr> expression) : expression(expression) {}
-    void execute(std::unordered_map<std::string, double>& env) override {
-        std::cout << expression->evaluate(env) << std::endl;
+    void execute(Environment& env) override {
+        Value val = expression->evaluate(env);
+        if (std::holds_alternative<double>(val))
+            std::cout << std::get<double>(val) << std::endl;
+        else if (std::holds_alternative<std::string>(val))
+            std::cout << std::get<std::string>(val) << std::endl;
     }
 };
 
@@ -33,9 +39,7 @@ struct VarStmt : public Stmt {
     std::shared_ptr<Expr> initializer;
     VarStmt(const std::string& name, std::shared_ptr<Expr> initializer)
         : name(name), initializer(initializer) {}
-    void execute(std::unordered_map<std::string, double>& env) override {
+    void execute(Environment& env) override {
         env[name] = initializer->evaluate(env);
     }
 };
-
-#endif // STMT_HPP

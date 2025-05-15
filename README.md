@@ -1,34 +1,65 @@
 # C++ Expression Interpreter
 
-A lightweight C++ interpreter that parses and evaluates arithmetic expressions with support for variables, operator precedence, and basic statements. It provides a simple REPL (Read-Eval-Print Loop) interface.
+A lightweight C++ interpreter that parses and evaluates arithmetic and comparison expressions with support for variables, string literals, and basic statements. It provides a simple REPL (Read-Eval-Print Loop) interface for interactive execution.
+
+---
 
 ## Architecture Overview
 
 This interpreter is structured in the following phases:
+
 - **Scanner (Lexer)** – Converts input strings into a list of tokens.
 - **Parser** – Builds an Abstract Syntax Tree (AST) from the tokens.
 - **Interpreter** – Walks the AST and evaluates expressions.
 - **REPL** – A loop that reads user input, parses, evaluates, and prints results.
 
-Each component is modular and easy to extend with new features like grouping, functions, or control flow.
+Each component is modular and easy to extend with features like functions, control flow, and more.
+
+---
 
 ## Features
 
-- Parses and evaluates arithmetic expressions: `+`, `-`, `*`, `/`
-- Correct operator precedence and left-to-right associativity
-- **Variable assignment and usage**: `let x = 5`, `x + 2`, `var y = x + 10`
-- **Support for both `let` and `var`** for variable declarations
-- **Print statements**: `print x + y`
-- **Semicolon-terminated statements**: `let x = 5; print x + 2;`
-- REPL interface for interactive expression input
-- Basic error handling (syntax errors, division by zero, undefined variables)
+- **Arithmetic operators**: `+`, `-`, `*`, `/`
+- **Comparison operators**: `==`, `!=`, `<`, `<=`, `>`, `>=`
+- **String literals**: `"hello"`, `"x = " + x`
+- **Variable assignment and usage**:
+  - `let x = 10;`
+  - `var y = x + 5;`
+- **Print statements**:
+  - `print x + y;`
+  - `print "Result: " + x;`
+- **Semicolon-terminated statements**
+- **REPL interface** for interactive command input
+- **Error handling** for:
+  - Syntax errors
+  - Undefined variables
+  - Division by zero
+  - Unterminated strings
 
-## Pre-built Binaries v0.1.0
+---
 
-A Windows .exe is available in the v0.1.0 Pre-release.
+## How to Use (via REPL)
+
+When you run the interpreter executable, you'll see a `>` prompt.
+
+### Examples:
+
+```txt
+> let x = 10;
+> var y = x * 2;
+> print x + y;
+30
+> print "x = " + x;
+x = 10
+> print x == 10;
+1
+```
+## Pre-built Binaries v0.1.2
+
+A Windows .exe is available in the v0.1.2 release.
 
 Download:
-➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.1)
+➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.2)
 
 ## Installation
 
@@ -51,3 +82,4 @@ cmake --preset default
 
 # Build the executable
 cmake --build . --target Interpreter
+```

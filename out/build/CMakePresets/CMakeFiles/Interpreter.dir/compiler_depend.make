@@ -54,6 +54,7 @@ CMakeFiles/Interpreter.dir/main.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/Documen
   D:/MinGW/include/c++/13.2.0/bits/node_handle.h \
   D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
   D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h \
+  D:/MinGW/include/c++/13.2.0/bits/parse_numbers.h \
   D:/MinGW/include/c++/13.2.0/bits/postypes.h \
   D:/MinGW/include/c++/13.2.0/bits/predefined_ops.h \
   D:/MinGW/include/c++/13.2.0/bits/ptr_traits.h \
@@ -125,6 +126,7 @@ CMakeFiles/Interpreter.dir/main.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/Documen
   D:/MinGW/include/c++/13.2.0/type_traits \
   D:/MinGW/include/c++/13.2.0/typeinfo \
   D:/MinGW/include/c++/13.2.0/unordered_map \
+  D:/MinGW/include/c++/13.2.0/variant \
   D:/MinGW/include/c++/13.2.0/vector \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -231,6 +233,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj: C:/Users/Abhiraj\ Kale/OneDr
   D:/MinGW/include/c++/13.2.0/bits/node_handle.h \
   D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
   D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h \
+  D:/MinGW/include/c++/13.2.0/bits/parse_numbers.h \
   D:/MinGW/include/c++/13.2.0/bits/postypes.h \
   D:/MinGW/include/c++/13.2.0/bits/predefined_ops.h \
   D:/MinGW/include/c++/13.2.0/bits/ptr_traits.h \
@@ -302,6 +305,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj: C:/Users/Abhiraj\ Kale/OneDr
   D:/MinGW/include/c++/13.2.0/type_traits \
   D:/MinGW/include/c++/13.2.0/typeinfo \
   D:/MinGW/include/c++/13.2.0/unordered_map \
+  D:/MinGW/include/c++/13.2.0/variant \
   D:/MinGW/include/c++/13.2.0/vector \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -361,6 +365,7 @@ CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj: C:/Users/Abhiraj\ Kale/OneDr
 
 CMakeFiles/Interpreter.dir/src/parser.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/src/parser.cpp \
   C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/include/expr.hpp \
+  C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/include/interpreter.hpp \
   C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/include/parser.hpp \
   C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/include/stmt.hpp \
   C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/include/token.hpp \
@@ -410,6 +415,7 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/D
   D:/MinGW/include/c++/13.2.0/bits/node_handle.h \
   D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
   D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h \
+  D:/MinGW/include/c++/13.2.0/bits/parse_numbers.h \
   D:/MinGW/include/c++/13.2.0/bits/postypes.h \
   D:/MinGW/include/c++/13.2.0/bits/predefined_ops.h \
   D:/MinGW/include/c++/13.2.0/bits/ptr_traits.h \
@@ -481,6 +487,7 @@ CMakeFiles/Interpreter.dir/src/parser.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/D
   D:/MinGW/include/c++/13.2.0/type_traits \
   D:/MinGW/include/c++/13.2.0/typeinfo \
   D:/MinGW/include/c++/13.2.0/unordered_map \
+  D:/MinGW/include/c++/13.2.0/variant \
   D:/MinGW/include/c++/13.2.0/vector \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -546,8 +553,6 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/include/c++/13.2.0/bit \
   D:/MinGW/include/c++/13.2.0/bits/alloc_traits.h \
   D:/MinGW/include/c++/13.2.0/bits/allocator.h \
-  D:/MinGW/include/c++/13.2.0/bits/basic_ios.h \
-  D:/MinGW/include/c++/13.2.0/bits/basic_ios.tcc \
   D:/MinGW/include/c++/13.2.0/bits/basic_string.h \
   D:/MinGW/include/c++/13.2.0/bits/basic_string.tcc \
   D:/MinGW/include/c++/13.2.0/bits/char_traits.h \
@@ -563,19 +568,12 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/include/c++/13.2.0/bits/functional_hash.h \
   D:/MinGW/include/c++/13.2.0/bits/hash_bytes.h \
   D:/MinGW/include/c++/13.2.0/bits/invoke.h \
-  D:/MinGW/include/c++/13.2.0/bits/ios_base.h \
-  D:/MinGW/include/c++/13.2.0/bits/istream.tcc \
-  D:/MinGW/include/c++/13.2.0/bits/locale_classes.h \
-  D:/MinGW/include/c++/13.2.0/bits/locale_classes.tcc \
-  D:/MinGW/include/c++/13.2.0/bits/locale_facets.h \
-  D:/MinGW/include/c++/13.2.0/bits/locale_facets.tcc \
   D:/MinGW/include/c++/13.2.0/bits/localefwd.h \
   D:/MinGW/include/c++/13.2.0/bits/memory_resource.h \
   D:/MinGW/include/c++/13.2.0/bits/memoryfwd.h \
   D:/MinGW/include/c++/13.2.0/bits/move.h \
   D:/MinGW/include/c++/13.2.0/bits/nested_exception.h \
   D:/MinGW/include/c++/13.2.0/bits/new_allocator.h \
-  D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
   D:/MinGW/include/c++/13.2.0/bits/ostream_insert.h \
   D:/MinGW/include/c++/13.2.0/bits/postypes.h \
   D:/MinGW/include/c++/13.2.0/bits/predefined_ops.h \
@@ -594,8 +592,6 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/include/c++/13.2.0/bits/stl_pair.h \
   D:/MinGW/include/c++/13.2.0/bits/stl_uninitialized.h \
   D:/MinGW/include/c++/13.2.0/bits/stl_vector.h \
-  D:/MinGW/include/c++/13.2.0/bits/streambuf.tcc \
-  D:/MinGW/include/c++/13.2.0/bits/streambuf_iterator.h \
   D:/MinGW/include/c++/13.2.0/bits/string_view.tcc \
   D:/MinGW/include/c++/13.2.0/bits/stringfwd.h \
   D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h \
@@ -609,43 +605,29 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/include/c++/13.2.0/cstdio \
   D:/MinGW/include/c++/13.2.0/cstdlib \
   D:/MinGW/include/c++/13.2.0/cwchar \
-  D:/MinGW/include/c++/13.2.0/cwctype \
   D:/MinGW/include/c++/13.2.0/debug/assertions.h \
   D:/MinGW/include/c++/13.2.0/debug/debug.h \
   D:/MinGW/include/c++/13.2.0/exception \
   D:/MinGW/include/c++/13.2.0/ext/alloc_traits.h \
-  D:/MinGW/include/c++/13.2.0/ext/atomicity.h \
   D:/MinGW/include/c++/13.2.0/ext/numeric_traits.h \
   D:/MinGW/include/c++/13.2.0/ext/string_conversions.h \
   D:/MinGW/include/c++/13.2.0/ext/type_traits.h \
   D:/MinGW/include/c++/13.2.0/initializer_list \
-  D:/MinGW/include/c++/13.2.0/ios \
   D:/MinGW/include/c++/13.2.0/iosfwd \
-  D:/MinGW/include/c++/13.2.0/iostream \
-  D:/MinGW/include/c++/13.2.0/istream \
   D:/MinGW/include/c++/13.2.0/new \
-  D:/MinGW/include/c++/13.2.0/ostream \
   D:/MinGW/include/c++/13.2.0/pstl/pstl_config.h \
   D:/MinGW/include/c++/13.2.0/stdexcept \
   D:/MinGW/include/c++/13.2.0/stdlib.h \
-  D:/MinGW/include/c++/13.2.0/streambuf \
   D:/MinGW/include/c++/13.2.0/string \
   D:/MinGW/include/c++/13.2.0/string_view \
-  D:/MinGW/include/c++/13.2.0/system_error \
   D:/MinGW/include/c++/13.2.0/tuple \
   D:/MinGW/include/c++/13.2.0/type_traits \
   D:/MinGW/include/c++/13.2.0/typeinfo \
   D:/MinGW/include/c++/13.2.0/vector \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++locale.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr.h \
   D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   D:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include/limits.h \
   D:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mm_malloc.h \
@@ -656,9 +638,7 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/x86_64-w64-mingw32/include/_mingw_off_t.h \
   D:/MinGW/x86_64-w64-mingw32/include/_mingw_secapi.h \
   D:/MinGW/x86_64-w64-mingw32/include/_mingw_stat64.h \
-  D:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
   D:/MinGW/x86_64-w64-mingw32/include/corecrt.h \
-  D:/MinGW/x86_64-w64-mingw32/include/corecrt_startup.h \
   D:/MinGW/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
   D:/MinGW/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
   D:/MinGW/x86_64-w64-mingw32/include/crtdefs.h \
@@ -667,28 +647,16 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: C:/Users/Abhiraj\ Kale/OneDrive/
   D:/MinGW/x86_64-w64-mingw32/include/limits.h \
   D:/MinGW/x86_64-w64-mingw32/include/locale.h \
   D:/MinGW/x86_64-w64-mingw32/include/malloc.h \
-  D:/MinGW/x86_64-w64-mingw32/include/process.h \
-  D:/MinGW/x86_64-w64-mingw32/include/pthread.h \
-  D:/MinGW/x86_64-w64-mingw32/include/pthread_compat.h \
-  D:/MinGW/x86_64-w64-mingw32/include/pthread_signal.h \
-  D:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
-  D:/MinGW/x86_64-w64-mingw32/include/pthread_unistd.h \
   D:/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   D:/MinGW/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   D:/MinGW/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
-  D:/MinGW/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   D:/MinGW/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
-  D:/MinGW/x86_64-w64-mingw32/include/signal.h \
   D:/MinGW/x86_64-w64-mingw32/include/stddef.h \
   D:/MinGW/x86_64-w64-mingw32/include/stdio.h \
   D:/MinGW/x86_64-w64-mingw32/include/stdlib.h \
   D:/MinGW/x86_64-w64-mingw32/include/swprintf.inl \
-  D:/MinGW/x86_64-w64-mingw32/include/sys/timeb.h \
-  D:/MinGW/x86_64-w64-mingw32/include/sys/types.h \
-  D:/MinGW/x86_64-w64-mingw32/include/time.h \
   D:/MinGW/x86_64-w64-mingw32/include/vadefs.h \
-  D:/MinGW/x86_64-w64-mingw32/include/wchar.h \
-  D:/MinGW/x86_64-w64-mingw32/include/wctype.h
+  D:/MinGW/x86_64-w64-mingw32/include/wchar.h
 
 
 C:/Users/Abhiraj\ Kale/OneDrive/Documents/C++/Interpreter/main.cpp:
@@ -766,6 +734,8 @@ D:/MinGW/include/c++/13.2.0/bits/charconv.h:
 D:/MinGW/include/c++/13.2.0/bits/basic_ios.tcc:
 
 D:/MinGW/include/c++/13.2.0/bits/basic_string.h:
+
+D:/MinGW/include/c++/13.2.0/bits/parse_numbers.h:
 
 D:/MinGW/include/c++/13.2.0/pstl/execution_defs.h:
 
@@ -972,6 +942,8 @@ D:/MinGW/include/c++/13.2.0/type_traits:
 D:/MinGW/include/c++/13.2.0/typeinfo:
 
 D:/MinGW/include/c++/13.2.0/unordered_map:
+
+D:/MinGW/include/c++/13.2.0/variant:
 
 D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
 

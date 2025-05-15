@@ -3,15 +3,25 @@
 
 #include <unordered_map>
 #include <string>
+#include <variant>
 #include <memory>
 #include <vector>
-#include "stmt.hpp"
+
+// A variant type that holds either double or string values
+using Value = std::variant<double, std::string>;
+
+// Environment is a map from variable names to their values
+using Environment = std::unordered_map<std::string, Value>;
+
+// Forward declaration of Stmt (pointer only)
+struct Stmt;
 
 class Interpreter {
 public:
     void interpret(const std::vector<std::shared_ptr<Stmt>>& statements);
+
 private:
-    std::unordered_map<std::string, double> environment;
+    Environment environment;
 };
 
 #endif // INTERPRETER_HPP

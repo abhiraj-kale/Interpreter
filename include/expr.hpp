@@ -3,36 +3,50 @@
 
 #include <memory>
 #include <string>
-#include <stdexcept>
 #include <unordered_map>
+#include <variant>
+#include <stdexcept>
+#include "interpreter.hpp"
 
 struct Expr {
     virtual ~Expr() = default;
-    virtual double evaluate(std::unordered_map<std::string, double>& env) = 0;
+    virtual Value evaluate(Environment& env) = 0;
 };
 
 struct Literal : public Expr {
-    double value;
-    Literal(double value) : value(value) {}
-    double evaluate(std::unordered_map<std::string, double>&) override {
+    Value value;
+
+    Literal(double val) : value(val) {}
+    Literal(const std::string& val) : value(val) {}
+
+    Value evaluate(Environment&) override {
         return value;
     }
 };
 
 struct Variable : public Expr {
     std::string name;
+
     Variable(const std::string& name) : name(name) {}
-    double evaluate(std::unordered_map<std::string, double>& env) override {
-        return env.at(name);
+
+    Value evaluate(Environment& env) override {
+        auto it = env.find(name);
+        if (it == env.end()) {
+            throw std::runtime_error("Undefined variable: " + name);
+        }
+        return it->second;
     }
 };
 
 struct Assign : public Expr {
     std::string name;
-    std::shared_ptr<Expr> value;
-    Assign(const std::string& name, std::shared_ptr<Expr> value) : name(name), value(value) {}
-    double evaluate(std::unordered_map<std::string, double>& env) override {
-        double val = value->evaluate(env);
+    std::shared_ptr<Expr> valueExpr;
+
+    Assign(const std::string& name, std::shared_ptr<Expr> value)
+        : name(name), valueExpr(value) {}
+
+    Value evaluate(Environment& env) override {
+        Value val = valueExpr->evaluate(env);
         env[name] = val;
         return val;
     }
@@ -46,16 +60,70 @@ struct Binary : public Expr {
     Binary(std::shared_ptr<Expr> left, const std::string& op, std::shared_ptr<Expr> right)
         : left(left), op(op), right(right) {}
 
-    double evaluate(std::unordered_map<std::string, double>& env) override {
-        double l = left->evaluate(env);
-        double r = right->evaluate(env);
-        if (op == "+") return l + r;
-        if (op == "-") return l - r;
-        if (op == "*") return l * r;
-        if (op == "/") return l / r;
+    Value evaluate(Environment& env) override {
+        Value l = left->evaluate(env);
+        Value r = right->evaluate(env);
+
+        // Handle string concatenation with '+'
+        if (op == "+") {
+            if (std::holds_alternative<std::string>(l) && std::holds_alternative<std::string>(r)) {
+                return std::get<std::string>(l) + std::get<std::string>(r);
+            }
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r)) {
+                return std::get<double>(l) + std::get<double>(r);
+            }
+            throw std::runtime_error("Type error: '+' operator requires both operands of same type");
+        }
+        else if (op == "-") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r)) {
+                return std::get<double>(l) - std::get<double>(r);
+            }
+            throw std::runtime_error("Type error: '-' operator requires numbers");
+        }
+        else if (op == "*") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r)) {
+                return std::get<double>(l) * std::get<double>(r);
+            }
+            throw std::runtime_error("Type error: '*' operator requires numbers");
+        }
+        else if (op == "/") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r)) {
+                double divisor = std::get<double>(r);
+                if (divisor == 0) throw std::runtime_error("Division by zero");
+                return std::get<double>(l) / divisor;
+            }
+            throw std::runtime_error("Type error: '/' operator requires numbers");
+        }
+        // Add comparison operators
+        else if (op == "==") {
+            return l == r ? 1.0 : 0.0;
+        }
+        else if (op == "!=") {
+            return l != r ? 1.0 : 0.0;
+        }
+        else if (op == "<") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r))
+                return std::get<double>(l) < std::get<double>(r) ? 1.0 : 0.0;
+            throw std::runtime_error("Type error: '<' requires numbers");
+        }
+        else if (op == "<=") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r))
+                return std::get<double>(l) <= std::get<double>(r) ? 1.0 : 0.0;
+            throw std::runtime_error("Type error: '<=' requires numbers");
+        }
+        else if (op == ">") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r))
+                return std::get<double>(l) > std::get<double>(r) ? 1.0 : 0.0;
+            throw std::runtime_error("Type error: '>' requires numbers");
+        }
+        else if (op == ">=") {
+            if (std::holds_alternative<double>(l) && std::holds_alternative<double>(r))
+                return std::get<double>(l) >= std::get<double>(r) ? 1.0 : 0.0;
+            throw std::runtime_error("Type error: '>=' requires numbers");
+        }
+
         throw std::runtime_error("Unknown operator: " + op);
-        return 0;
     }
 };
 
-#endif 
+#endif // EXPR_HPP

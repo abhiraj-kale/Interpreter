@@ -1,7 +1,6 @@
 CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: \
  C:\Users\Abhiraj\ Kale\OneDrive\Documents\C++\Interpreter\src\scanner.cpp \
  C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/scanner.hpp \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/token.hpp \
  D:/MinGW/include/c++/13.2.0/string \
  D:/MinGW/include/c++/13.2.0/bits/requires_hosted.h \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -96,52 +95,15 @@ CMakeFiles/Interpreter.dir/src/scanner.cpp.obj: \
  D:/MinGW/x86_64-w64-mingw32/include/stddef.h \
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h \
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator_args.h \
- D:/MinGW/include/c++/13.2.0/tuple D:/MinGW/include/c++/13.2.0/any \
- D:/MinGW/include/c++/13.2.0/typeinfo \
- D:/MinGW/include/c++/13.2.0/iostream D:/MinGW/include/c++/13.2.0/ostream \
- D:/MinGW/include/c++/13.2.0/ios D:/MinGW/include/c++/13.2.0/exception \
- D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h \
- D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h \
- D:/MinGW/include/c++/13.2.0/bits/nested_exception.h \
- D:/MinGW/include/c++/13.2.0/bits/ios_base.h \
- D:/MinGW/include/c++/13.2.0/ext/atomicity.h \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr.h \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
- D:/MinGW/x86_64-w64-mingw32/include/pthread.h \
- D:/MinGW/x86_64-w64-mingw32/include/sys/types.h \
- D:/MinGW/x86_64-w64-mingw32/include/process.h \
- D:/MinGW/x86_64-w64-mingw32/include/corecrt_startup.h \
- D:/MinGW/x86_64-w64-mingw32/include/signal.h \
- D:/MinGW/x86_64-w64-mingw32/include/pthread_signal.h \
- D:/MinGW/x86_64-w64-mingw32/include/time.h \
- D:/MinGW/x86_64-w64-mingw32/include/sys/timeb.h \
- D:/MinGW/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
- D:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
- D:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
- D:/MinGW/x86_64-w64-mingw32/include/pthread_compat.h \
- D:/MinGW/x86_64-w64-mingw32/include/pthread_unistd.h \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
- D:/MinGW/include/c++/13.2.0/bits/locale_classes.h \
- D:/MinGW/include/c++/13.2.0/bits/locale_classes.tcc \
- D:/MinGW/include/c++/13.2.0/system_error \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/error_constants.h \
- D:/MinGW/include/c++/13.2.0/stdexcept \
- D:/MinGW/include/c++/13.2.0/streambuf \
- D:/MinGW/include/c++/13.2.0/bits/streambuf.tcc \
- D:/MinGW/include/c++/13.2.0/bits/basic_ios.h \
- D:/MinGW/include/c++/13.2.0/bits/locale_facets.h \
- D:/MinGW/include/c++/13.2.0/cwctype \
- D:/MinGW/x86_64-w64-mingw32/include/wctype.h \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
- D:/MinGW/include/c++/13.2.0/bits/streambuf_iterator.h \
- D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
- D:/MinGW/include/c++/13.2.0/bits/locale_facets.tcc \
- D:/MinGW/include/c++/13.2.0/bits/basic_ios.tcc \
- D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
- D:/MinGW/include/c++/13.2.0/istream \
- D:/MinGW/include/c++/13.2.0/bits/istream.tcc \
- D:/MinGW/include/c++/13.2.0/vector \
+ D:/MinGW/include/c++/13.2.0/tuple D:/MinGW/include/c++/13.2.0/vector \
  D:/MinGW/include/c++/13.2.0/bits/stl_uninitialized.h \
  D:/MinGW/include/c++/13.2.0/bits/stl_vector.h \
  D:/MinGW/include/c++/13.2.0/bits/stl_bvector.h \
- D:/MinGW/include/c++/13.2.0/bits/vector.tcc
+ D:/MinGW/include/c++/13.2.0/bits/vector.tcc \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/token.hpp \
+ D:/MinGW/include/c++/13.2.0/any D:/MinGW/include/c++/13.2.0/typeinfo \
+ D:/MinGW/include/c++/13.2.0/stdexcept \
+ D:/MinGW/include/c++/13.2.0/exception \
+ D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h \
+ D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h \
+ D:/MinGW/include/c++/13.2.0/bits/nested_exception.h

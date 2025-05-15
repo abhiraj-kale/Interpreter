@@ -1,28 +1,28 @@
 #include "scanner.hpp"
 #include <cctype>
-#include <stdexcept> // For std::runtime_error
+#include <stdexcept>
 
 std::vector<Token> Scanner::scanTokens() {
+    tokens.clear();
     while (!isAtEnd()) {
         start = current;
         scanToken();
     }
-
     tokens.emplace_back(TokenType::END_OF_FILE, "", std::any(), line);
     return tokens;
 }
 
-bool Scanner::isAtEnd() { return current >= source.length(); }
+bool Scanner::isAtEnd() {
+    return current >= source.length();
+}
 
-char Scanner::advance() { return source[current++]; }
+char Scanner::advance() {
+    return source[current++];
+}
 
 void Scanner::addToken(TokenType type, std::any literal) {
     std::string text = source.substr(start, current - start);
     tokens.emplace_back(type, text, literal, line);
-}
-
-void Scanner::addToken(TokenType type) {
-    addToken(type, std::any());
 }
 
 char Scanner::peek() {
@@ -30,16 +30,11 @@ char Scanner::peek() {
     return source[current];
 }
 
-bool Scanner::isAlpha(char c) {
-    return std::isalpha(static_cast<unsigned char>(c)) || c == '_';
-}
-
-bool Scanner::isAlphaNumeric(char c) {
-    return isAlpha(c) || isDigit(c);
-}
-
-bool Scanner::isDigit(char c) {
-    return std::isdigit(static_cast<unsigned char>(c));
+bool Scanner::match(char expected) {
+    if (isAtEnd()) return false;
+    if (source[current] != expected) return false;
+    current++;
+    return true;
 }
 
 void Scanner::scanToken() {
@@ -49,13 +44,27 @@ void Scanner::scanToken() {
         case '-': addToken(TokenType::MINUS); break;
         case '*': addToken(TokenType::STAR); break;
         case '/': addToken(TokenType::SLASH); break;
-        case '=': addToken(TokenType::EQUAL); break;
+        case '=':
+            addToken(match('=') ? TokenType::EQUAL_EQUAL : TokenType::EQUAL);
+            break;
+        case '!':
+            addToken(match('=') ? TokenType::BANG_EQUAL : throw std::runtime_error("Unexpected character: !"));
+            break;
+        case '<':
+            addToken(match('=') ? TokenType::LESS_EQUAL : TokenType::LESS);
+            break;
+        case '>':
+            addToken(match('=') ? TokenType::GREATER_EQUAL : TokenType::GREATER);
+            break;
+        case '"': string(); break;
         case ';': addToken(TokenType::SEMICOLON); break;
         case ' ':
         case '\r':
         case '\t':
-        case '\n': 
-            break; 
+            break;
+        case '\n':
+            line++;
+            break;
         default:
             if (isDigit(c)) {
                 number();
@@ -64,7 +73,20 @@ void Scanner::scanToken() {
             } else {
                 throw std::runtime_error("Unexpected character: " + std::string(1, c));
             }
+            break;
     }
+}
+
+void Scanner::string() {
+    while (peek() != '"' && !isAtEnd()) advance();
+
+    if (isAtEnd())
+        throw std::runtime_error("Unterminated string.");
+
+    advance(); 
+
+    std::string value = source.substr(start + 1, current - start - 2);
+    addToken(TokenType::STRING, value);
 }
 
 void Scanner::number() {
@@ -81,15 +103,28 @@ void Scanner::number() {
 
 void Scanner::identifier() {
     while (isAlphaNumeric(peek())) advance();
+
     std::string text = source.substr(start, current - start);
 
-    if (text == "var") {
-        addToken(TokenType::VAR);
-    } else if(text == "let") {
+    if (text == "let") {
         addToken(TokenType::LET);
+    } else if (text == "var") {
+        addToken(TokenType::VAR);
     } else if (text == "print") {
         addToken(TokenType::PRINT);
     } else {
         addToken(TokenType::IDENTIFIER, text);
     }
+}
+
+bool Scanner::isDigit(char c) {
+    return std::isdigit(static_cast<unsigned char>(c));
+}
+
+bool Scanner::isAlpha(char c) {
+    return std::isalpha(static_cast<unsigned char>(c)) || c == '_';
+}
+
+bool Scanner::isAlphaNumeric(char c) {
+    return isAlpha(c) || isDigit(c);
 }

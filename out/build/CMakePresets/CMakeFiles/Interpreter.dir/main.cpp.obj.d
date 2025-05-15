@@ -1,7 +1,6 @@
 CMakeFiles/Interpreter.dir/main.cpp.obj: \
  C:\Users\Abhiraj\ Kale\OneDrive\Documents\C++\Interpreter\main.cpp \
  C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/scanner.hpp \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/token.hpp \
  D:/MinGW/include/c++/13.2.0/string \
  D:/MinGW/include/c++/13.2.0/bits/requires_hosted.h \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -96,14 +95,26 @@ CMakeFiles/Interpreter.dir/main.cpp.obj: \
  D:/MinGW/x86_64-w64-mingw32/include/stddef.h \
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator.h \
  D:/MinGW/include/c++/13.2.0/bits/uses_allocator_args.h \
- D:/MinGW/include/c++/13.2.0/tuple D:/MinGW/include/c++/13.2.0/any \
- D:/MinGW/include/c++/13.2.0/typeinfo \
- D:/MinGW/include/c++/13.2.0/iostream D:/MinGW/include/c++/13.2.0/ostream \
- D:/MinGW/include/c++/13.2.0/ios D:/MinGW/include/c++/13.2.0/exception \
- D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h \
- D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h \
- D:/MinGW/include/c++/13.2.0/bits/nested_exception.h \
- D:/MinGW/include/c++/13.2.0/bits/ios_base.h \
+ D:/MinGW/include/c++/13.2.0/tuple D:/MinGW/include/c++/13.2.0/vector \
+ D:/MinGW/include/c++/13.2.0/bits/stl_uninitialized.h \
+ D:/MinGW/include/c++/13.2.0/bits/stl_vector.h \
+ D:/MinGW/include/c++/13.2.0/bits/stl_bvector.h \
+ D:/MinGW/include/c++/13.2.0/bits/vector.tcc \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/token.hpp \
+ D:/MinGW/include/c++/13.2.0/any D:/MinGW/include/c++/13.2.0/typeinfo \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/parser.hpp \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/expr.hpp \
+ D:/MinGW/include/c++/13.2.0/memory \
+ D:/MinGW/include/c++/13.2.0/bits/stl_tempbuf.h \
+ D:/MinGW/include/c++/13.2.0/bits/stl_raw_storage_iter.h \
+ D:/MinGW/include/c++/13.2.0/bits/align.h \
+ D:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
+ D:/MinGW/x86_64-w64-mingw32/include/stdint.h \
+ D:/MinGW/include/c++/13.2.0/bits/unique_ptr.h \
+ D:/MinGW/include/c++/13.2.0/bits/shared_ptr.h \
+ D:/MinGW/include/c++/13.2.0/bits/shared_ptr_base.h \
+ D:/MinGW/include/c++/13.2.0/bits/allocated_ptr.h \
+ D:/MinGW/include/c++/13.2.0/ext/aligned_buffer.h \
  D:/MinGW/include/c++/13.2.0/ext/atomicity.h \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr.h \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
@@ -121,11 +132,36 @@ CMakeFiles/Interpreter.dir/main.cpp.obj: \
  D:/MinGW/x86_64-w64-mingw32/include/pthread_compat.h \
  D:/MinGW/x86_64-w64-mingw32/include/pthread_unistd.h \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
+ D:/MinGW/include/c++/13.2.0/ext/concurrence.h \
+ D:/MinGW/include/c++/13.2.0/exception \
+ D:/MinGW/include/c++/13.2.0/bits/exception_ptr.h \
+ D:/MinGW/include/c++/13.2.0/bits/cxxabi_init_exception.h \
+ D:/MinGW/include/c++/13.2.0/bits/nested_exception.h \
+ D:/MinGW/include/c++/13.2.0/bits/shared_ptr_atomic.h \
+ D:/MinGW/include/c++/13.2.0/bits/atomic_base.h \
+ D:/MinGW/include/c++/13.2.0/bits/atomic_lockfree_defines.h \
+ D:/MinGW/include/c++/13.2.0/backward/auto_ptr.h \
+ D:/MinGW/include/c++/13.2.0/pstl/glue_memory_defs.h \
+ D:/MinGW/include/c++/13.2.0/pstl/execution_defs.h \
+ D:/MinGW/include/c++/13.2.0/unordered_map \
+ D:/MinGW/include/c++/13.2.0/bits/unordered_map.h \
+ D:/MinGW/include/c++/13.2.0/bits/hashtable.h \
+ D:/MinGW/include/c++/13.2.0/bits/hashtable_policy.h \
+ D:/MinGW/include/c++/13.2.0/bits/enable_special_members.h \
+ D:/MinGW/include/c++/13.2.0/bits/node_handle.h \
+ D:/MinGW/include/c++/13.2.0/bits/erase_if.h \
+ D:/MinGW/include/c++/13.2.0/variant \
+ D:/MinGW/include/c++/13.2.0/bits/parse_numbers.h \
+ D:/MinGW/include/c++/13.2.0/stdexcept \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/interpreter.hpp \
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/stmt.hpp \
+ D:/MinGW/include/c++/13.2.0/iostream D:/MinGW/include/c++/13.2.0/ostream \
+ D:/MinGW/include/c++/13.2.0/ios \
+ D:/MinGW/include/c++/13.2.0/bits/ios_base.h \
  D:/MinGW/include/c++/13.2.0/bits/locale_classes.h \
  D:/MinGW/include/c++/13.2.0/bits/locale_classes.tcc \
  D:/MinGW/include/c++/13.2.0/system_error \
  D:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32/bits/error_constants.h \
- D:/MinGW/include/c++/13.2.0/stdexcept \
  D:/MinGW/include/c++/13.2.0/streambuf \
  D:/MinGW/include/c++/13.2.0/bits/streambuf.tcc \
  D:/MinGW/include/c++/13.2.0/bits/basic_ios.h \
@@ -140,38 +176,4 @@ CMakeFiles/Interpreter.dir/main.cpp.obj: \
  D:/MinGW/include/c++/13.2.0/bits/ostream.tcc \
  D:/MinGW/include/c++/13.2.0/istream \
  D:/MinGW/include/c++/13.2.0/bits/istream.tcc \
- D:/MinGW/include/c++/13.2.0/vector \
- D:/MinGW/include/c++/13.2.0/bits/stl_uninitialized.h \
- D:/MinGW/include/c++/13.2.0/bits/stl_vector.h \
- D:/MinGW/include/c++/13.2.0/bits/stl_bvector.h \
- D:/MinGW/include/c++/13.2.0/bits/vector.tcc \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/parser.hpp \
- D:/MinGW/include/c++/13.2.0/memory \
- D:/MinGW/include/c++/13.2.0/bits/stl_tempbuf.h \
- D:/MinGW/include/c++/13.2.0/bits/stl_raw_storage_iter.h \
- D:/MinGW/include/c++/13.2.0/bits/align.h \
- D:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
- D:/MinGW/x86_64-w64-mingw32/include/stdint.h \
- D:/MinGW/include/c++/13.2.0/bits/unique_ptr.h \
- D:/MinGW/include/c++/13.2.0/bits/shared_ptr.h \
- D:/MinGW/include/c++/13.2.0/bits/shared_ptr_base.h \
- D:/MinGW/include/c++/13.2.0/bits/allocated_ptr.h \
- D:/MinGW/include/c++/13.2.0/ext/aligned_buffer.h \
- D:/MinGW/include/c++/13.2.0/ext/concurrence.h \
- D:/MinGW/include/c++/13.2.0/bits/shared_ptr_atomic.h \
- D:/MinGW/include/c++/13.2.0/bits/atomic_base.h \
- D:/MinGW/include/c++/13.2.0/bits/atomic_lockfree_defines.h \
- D:/MinGW/include/c++/13.2.0/backward/auto_ptr.h \
- D:/MinGW/include/c++/13.2.0/pstl/glue_memory_defs.h \
- D:/MinGW/include/c++/13.2.0/pstl/execution_defs.h \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/expr.hpp \
- D:/MinGW/include/c++/13.2.0/unordered_map \
- D:/MinGW/include/c++/13.2.0/bits/unordered_map.h \
- D:/MinGW/include/c++/13.2.0/bits/hashtable.h \
- D:/MinGW/include/c++/13.2.0/bits/hashtable_policy.h \
- D:/MinGW/include/c++/13.2.0/bits/enable_special_members.h \
- D:/MinGW/include/c++/13.2.0/bits/node_handle.h \
- D:/MinGW/include/c++/13.2.0/bits/erase_if.h \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/stmt.hpp \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/interpreter.hpp \
- C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/stmt.hpp
+ C:/Users/ABHIRA~1/OneDrive/DOCUME~1/C__~1/INTERP~1/include/interpreter.hpp
