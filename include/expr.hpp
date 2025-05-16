@@ -94,7 +94,6 @@ struct Binary : public Expr {
             }
             throw std::runtime_error("Type error: '/' operator requires numbers");
         }
-        // Add comparison operators
         else if (op == "==") {
             return l == r ? 1.0 : 0.0;
         }
@@ -123,6 +122,29 @@ struct Binary : public Expr {
         }
 
         throw std::runtime_error("Unknown operator: " + op);
+    }
+};
+struct Unary : public Expr {
+    std::string op;
+    std::shared_ptr<Expr> right;
+
+    Unary(const std::string& op, std::shared_ptr<Expr> right)
+        : op(op), right(right) {}
+
+    Value evaluate(Environment& env) override {
+        Value val = right->evaluate(env);
+        if (op == "-") {
+            if (std::holds_alternative<double>(val)) {
+                return -std::get<double>(val);
+            }
+            throw std::runtime_error("Unary '-' requires a number.");
+        } else if (op == "!") {
+            if (std::holds_alternative<double>(val)) {
+                return std::get<double>(val) == 0.0 ? 1.0 : 0.0;
+            }
+            throw std::runtime_error("Unary '!' requires a number.");
+        }
+        throw std::runtime_error("Unknown unary operator.");
     }
 };
 

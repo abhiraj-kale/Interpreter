@@ -43,3 +43,14 @@ struct VarStmt : public Stmt {
         env[name] = initializer->evaluate(env);
     }
 };
+
+struct BlockStmt : public Stmt {
+    std::vector<std::shared_ptr<Stmt>> statements;
+    BlockStmt(std::vector<std::shared_ptr<Stmt>> stmts) : statements(std::move(stmts)) {}
+    void execute(Environment& env) override {
+        Environment localEnv = env; 
+        for (auto& stmt : statements) {
+            stmt->execute(localEnv);
+        }
+    }
+};

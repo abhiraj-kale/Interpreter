@@ -47,9 +47,7 @@ void Scanner::scanToken() {
         case '=':
             addToken(match('=') ? TokenType::EQUAL_EQUAL : TokenType::EQUAL);
             break;
-        case '!':
-            addToken(match('=') ? TokenType::BANG_EQUAL : throw std::runtime_error("Unexpected character: !"));
-            break;
+        case '!': addToken(match('=') ? TokenType::BANG_EQUAL : TokenType::BANG); break;
         case '<':
             addToken(match('=') ? TokenType::LESS_EQUAL : TokenType::LESS);
             break;
@@ -65,6 +63,10 @@ void Scanner::scanToken() {
         case '\n':
             line++;
             break;
+        case '(': addToken(TokenType::LEFT_PAREN); break;
+        case ')': addToken(TokenType::RIGHT_PAREN); break;
+        case '{': addToken(TokenType::LEFT_BRACE); break;
+        case '}': addToken(TokenType::RIGHT_BRACE); break;
         default:
             if (isDigit(c)) {
                 number();
@@ -112,6 +114,10 @@ void Scanner::identifier() {
         addToken(TokenType::VAR);
     } else if (text == "print") {
         addToken(TokenType::PRINT);
+    } else if (text == "true") {
+        addToken(TokenType::TRUE);
+    } else if (text == "false") {
+        addToken(TokenType::FALSE);
     } else {
         addToken(TokenType::IDENTIFIER, text);
     }

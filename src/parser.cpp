@@ -16,6 +16,11 @@ std::shared_ptr<Stmt> Parser::parseStatement() {
         return std::make_shared<PrintStmt>(value);
     }
 
+    if (match({TokenType::LEFT_BRACE})) {
+        return std::make_shared<BlockStmt>(parseBlock());
+    }
+
+
     auto expr = parseExpression();
     consume(TokenType::SEMICOLON, "Expected ';' after expression.");
     return std::make_shared<ExpressionStmt>(expr);
@@ -78,15 +83,23 @@ std::shared_ptr<Expr> Parser::parseTerm() {
     return expr;
 }
 
+std::shared_ptr<Expr> Parser::parseUnary() {
+    if (match({TokenType::BANG, TokenType::MINUS})) {
+        std::string op = previous().lexeme;
+        auto right = parseUnary();
+        return std::make_shared<Unary>(op, right);
+    }
+    return parsePrimary();
+}
+
 std::shared_ptr<Expr> Parser::parseFactor() {
-    auto expr = parsePrimary();
+    auto expr = parseUnary();
 
     while (match({TokenType::STAR, TokenType::SLASH})) {
         Token op = previous();
-        auto right = parsePrimary();
+        auto right = parseUnary();
         expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
-
     return expr;
 }
 
@@ -99,11 +112,34 @@ std::shared_ptr<Expr> Parser::parsePrimary() {
         return std::make_shared<Literal>(std::any_cast<std::string>(previous().literal));
     }
 
+    if (match({TokenType::TRUE})) {
+        return std::make_shared<Literal>(1.0); // true as 1
+    }
+
+    if (match({TokenType::FALSE})) {
+        return std::make_shared<Literal>(0.0); // false as 0
+    }
+
+    if (match({TokenType::LEFT_PAREN})) {
+        auto expr = parseExpression();
+        consume(TokenType::RIGHT_PAREN, "Expect ')' after expression.");
+        return expr;
+    }
+
     if (match({TokenType::IDENTIFIER})) {
         return std::make_shared<Variable>(previous().lexeme);
     }
 
     throw std::runtime_error("Expected expression.");
+}
+
+std::vector<std::shared_ptr<Stmt>> Parser::parseBlock() {
+    std::vector<std::shared_ptr<Stmt>> statements;
+    while (!check(TokenType::RIGHT_BRACE) && !isAtEnd()) {
+        statements.push_back(parseStatement());
+    }
+    consume(TokenType::RIGHT_BRACE, "Expect '}' after block.");
+    return statements;
 }
 
 #include "parser.hpp"
