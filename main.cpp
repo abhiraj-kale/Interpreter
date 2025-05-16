@@ -30,22 +30,34 @@ int main() {
 
     std::string line;
     while (true) {
-        std::cout << "> ";
+        std::cout << ">";
         if (!std::getline(std::cin, line) || line.empty()) break;
-
+        int openBraces=0;
+        int closeBraces=0;
+        for (char c:line) {
+            if (c=='{') openBraces++;
+            else if (c=='}') closeBraces++;
+        }
+        while (openBraces>closeBraces) {
+            std::string nextLine;
+            std::cout << "| ";
+            if (!std::getline(std::cin, nextLine)) break;
+            line+="\n"+nextLine;
+            for (char c:nextLine) {
+                if (c=='{') openBraces++;
+                else if (c=='}') closeBraces++;
+            }
+        }
         try {
             Scanner scanner(line);
-            std::vector<Token> tokens = scanner.scanTokens();
-
+            std::vector<Token> tokens=scanner.scanTokens();
             Parser parser(tokens);
-            std::shared_ptr<Stmt> stmt = parser.parseStatement();
-
-            interpreter.interpret({ stmt });
+            std::shared_ptr<Stmt> stmt=parser.parseStatement();
+            interpreter.interpret({stmt});
         } catch (const std::exception& e) {
             std::cerr << "Error: " << e.what() << std::endl;
         }
     }
-
     std::cout << "Goodbye.\n";
     return 0;
 }
