@@ -9,18 +9,34 @@ std::shared_ptr<Stmt> Parser::parseStatement() {
         consume(TokenType::SEMICOLON, "Expected ';' after variable declaration.");
         return std::make_shared<VarStmt>(nameToken.lexeme, initializer);
     }
-
     if (match({TokenType::PRINT})) {
         auto value = parseExpression();
         consume(TokenType::SEMICOLON, "Expected ';' after value.");
         return std::make_shared<PrintStmt>(value);
     }
-
     if (match({TokenType::LEFT_BRACE})) {
         return std::make_shared<BlockStmt>(parseBlock());
     }
+    if (match({TokenType::IF})) {
+        consume(TokenType::LEFT_PAREN, "Expected '(' after 'if'.");
+        auto condition = parseExpression();
+        consume(TokenType::RIGHT_PAREN, "Expected ')' after if condition.");
 
+        auto thenBranch = parseStatement();
+        std::shared_ptr<Stmt> elseBranch = nullptr;
+        if (match({TokenType::ELSE})) {
+            elseBranch = parseStatement();
+        }
 
+        return std::make_shared<IfStmt>(condition, thenBranch, elseBranch);
+    }
+    if (match({TokenType::WHILE})) {
+        consume(TokenType::LEFT_PAREN, "Expected '(' after 'while'.");
+        auto condition = parseExpression();
+        consume(TokenType::RIGHT_PAREN, "Expected ')' after condition.");
+        auto body = parseStatement();
+        return std::make_shared<WhileStmt>(condition, body);
+    }
     auto expr = parseExpression();
     consume(TokenType::SEMICOLON, "Expected ';' after expression.");
     return std::make_shared<ExpressionStmt>(expr);
@@ -113,11 +129,11 @@ std::shared_ptr<Expr> Parser::parsePrimary() {
     }
 
     if (match({TokenType::TRUE})) {
-        return std::make_shared<Literal>(1.0); // true as 1
+        return std::make_shared<Literal>(1.0); 
     }
 
     if (match({TokenType::FALSE})) {
-        return std::make_shared<Literal>(0.0); // false as 0
+        return std::make_shared<Literal>(0.0); 
     }
 
     if (match({TokenType::LEFT_PAREN})) {
@@ -141,9 +157,6 @@ std::vector<std::shared_ptr<Stmt>> Parser::parseBlock() {
     consume(TokenType::RIGHT_BRACE, "Expect '}' after block.");
     return statements;
 }
-
-#include "parser.hpp"
-#include <stdexcept>
 
 bool Parser::match(const std::vector<TokenType>& types) {
     for (const auto& type : types) {

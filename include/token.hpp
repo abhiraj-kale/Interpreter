@@ -11,6 +11,7 @@ enum class TokenType {
     LESS, LESS_EQUAL,
     RIGHT_BRACE, LEFT_BRACE,
     TRUE, FALSE,
+    IF, ELSE, WHILE,
     IDENTIFIER, STRING, NUMBER,
     LET, VAR, PRINT,
     END_OF_FILE,

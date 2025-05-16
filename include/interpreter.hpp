@@ -7,13 +7,8 @@
 #include <memory>
 #include <vector>
 
-// A variant type that holds either double or string values
 using Value = std::variant<double, std::string>;
-
-// Environment is a map from variable names to their values
 using Environment = std::unordered_map<std::string, Value>;
-
-// Forward declaration of Stmt (pointer only)
 struct Stmt;
 
 class Interpreter {
@@ -24,4 +19,4 @@ private:
     Environment environment;
 };
 
-#endif // INTERPRETER_HPP
+#endif 

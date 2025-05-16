@@ -23,8 +23,6 @@ private:
     std::shared_ptr<Expr> parseFactor();
     std::shared_ptr<Expr> parsePrimary();
     std::vector<std::shared_ptr<Stmt>> parseBlock();
-
-    // Accept a vector of TokenType, to check if current token matches any type
     bool match(const std::vector<TokenType>& types);
     bool check(TokenType type);
     Token advance();
@@ -37,4 +35,4 @@ private:
     size_t current;
 };
 
-#endif // PARSER_HPP
+#endif

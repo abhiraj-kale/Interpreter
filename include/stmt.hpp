@@ -48,9 +48,43 @@ struct BlockStmt : public Stmt {
     std::vector<std::shared_ptr<Stmt>> statements;
     BlockStmt(std::vector<std::shared_ptr<Stmt>> stmts) : statements(std::move(stmts)) {}
     void execute(Environment& env) override {
-        Environment localEnv = env; 
         for (auto& stmt : statements) {
-            stmt->execute(localEnv);
+            stmt->execute(env);
+        }
+    }
+};
+
+struct IfStmt : public Stmt {
+    std::shared_ptr<Expr> condition;
+    std::shared_ptr<Stmt> thenBranch;
+    std::shared_ptr<Stmt> elseBranch;
+
+    IfStmt(std::shared_ptr<Expr> cond, std::shared_ptr<Stmt> thenBr, std::shared_ptr<Stmt> elseBr = nullptr)
+        : condition(cond), thenBranch(thenBr), elseBranch(elseBr) {}
+
+    void execute(Environment& env) override {
+        Value condVal = condition->evaluate(env);
+        if (std::holds_alternative<double>(condVal) && std::get<double>(condVal) != 0.0) {
+            thenBranch->execute(env);
+        } else if (elseBranch) {
+            elseBranch->execute(env);
+        }
+    }
+};
+
+struct WhileStmt : public Stmt {
+    std::shared_ptr<Expr> condition;
+    std::shared_ptr<Stmt> body;
+
+    WhileStmt(std::shared_ptr<Expr> cond, std::shared_ptr<Stmt> body)
+        : condition(cond), body(body) {}
+
+    void execute(Environment& env) override {
+        while (true) {
+            Value condVal = condition->evaluate(env);
+            if (!std::holds_alternative<double>(condVal) || std::get<double>(condVal) == 0.0)
+                break;
+            body->execute(env);
         }
     }
 };

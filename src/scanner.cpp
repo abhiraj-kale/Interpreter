@@ -118,7 +118,11 @@ void Scanner::identifier() {
         addToken(TokenType::TRUE);
     } else if (text == "false") {
         addToken(TokenType::FALSE);
-    } else {
+    } 
+    else if (text == "if") addToken(TokenType::IF);
+    else if (text == "else") addToken(TokenType::ELSE);
+    else if (text == "while") addToken(TokenType::WHILE);
+    else {
         addToken(TokenType::IDENTIFIER, text);
     }
 }

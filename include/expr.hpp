@@ -64,7 +64,6 @@ struct Binary : public Expr {
         Value l = left->evaluate(env);
         Value r = right->evaluate(env);
 
-        // Handle string concatenation with '+'
         if (op == "+") {
             if (std::holds_alternative<std::string>(l) && std::holds_alternative<std::string>(r)) {
                 return std::get<std::string>(l) + std::get<std::string>(r);
@@ -148,4 +147,4 @@ struct Unary : public Expr {
     }
 };
 
-#endif // EXPR_HPP
+#endif 
