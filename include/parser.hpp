@@ -23,6 +23,11 @@ private:
     std::shared_ptr<Expr> parseFactor();
     std::shared_ptr<Expr> parsePrimary();
     std::vector<std::shared_ptr<Stmt>> parseBlock();
+    std::shared_ptr<Stmt> parseFunction();
+    std::shared_ptr<Stmt> parseReturn();
+    std::shared_ptr<Expr> parseLogicOr();
+    std::shared_ptr<Expr> parseLogicAnd();
+    std::shared_ptr<Expr> parseCall();
     bool match(const std::vector<TokenType>& types);
     bool check(TokenType type);
     Token advance();

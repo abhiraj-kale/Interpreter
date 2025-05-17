@@ -11,6 +11,7 @@ set(SOURCES
     src/scanner.cpp
     src/parser.cpp
     src/interpreter.cpp
+    src/expr.cpp
 )
 
 add_executable(Interpreter ${SOURCES})

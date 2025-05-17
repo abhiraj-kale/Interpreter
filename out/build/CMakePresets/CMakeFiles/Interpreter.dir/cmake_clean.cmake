@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Interpreter.dir/main.cpp.obj"
   "CMakeFiles/Interpreter.dir/main.cpp.obj.d"
+  "CMakeFiles/Interpreter.dir/src/expr.cpp.obj"
+  "CMakeFiles/Interpreter.dir/src/expr.cpp.obj.d"
   "CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj"
   "CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj.d"
   "CMakeFiles/Interpreter.dir/src/parser.cpp.obj"

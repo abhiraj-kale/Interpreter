@@ -84,12 +84,12 @@ clean: CMakeFiles/Interpreter.dir/clean
 CMakeFiles/Interpreter.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=1,2,3,4,5 "Built target Interpreter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target Interpreter"
 .PHONY : CMakeFiles/Interpreter.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Interpreter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Interpreter.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
 .PHONY : CMakeFiles/Interpreter.dir/rule
@@ -101,7 +101,7 @@ Interpreter: CMakeFiles/Interpreter.dir/rule
 # codegen rule for target.
 CMakeFiles/Interpreter.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=1,2,3,4,5 "Finished codegen for target Interpreter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=1,2,3,4,5,6 "Finished codegen for target Interpreter"
 .PHONY : CMakeFiles/Interpreter.dir/codegen
 
 # clean rule for target.

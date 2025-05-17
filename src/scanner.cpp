@@ -56,6 +56,9 @@ void Scanner::scanToken() {
             break;
         case '"': string(); break;
         case ';': addToken(TokenType::SEMICOLON); break;
+        case ',':
+            tokens.emplace_back(TokenType::COMMA, ",", std::any(), line);
+            break;
         case ' ':
         case '\r':
         case '\t':
@@ -119,6 +122,15 @@ void Scanner::identifier() {
     } else if (text == "false") {
         addToken(TokenType::FALSE);
     } 
+    else if (text == "and") {
+        addToken(TokenType::AND);
+    } else if (text == "or") {
+        addToken(TokenType::OR);
+    } else if (text == "return") {
+        addToken(TokenType::RETURN);
+    } else if (text == "function") {
+        addToken(TokenType::FUN);
+    }    
     else if (text == "if") addToken(TokenType::IF);
     else if (text == "else") addToken(TokenType::ELSE);
     else if (text == "while") addToken(TokenType::WHILE);

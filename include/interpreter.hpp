@@ -1,22 +1,18 @@
 #ifndef INTERPRETER_HPP
 #define INTERPRETER_HPP
 
+#pragma once
 #include <unordered_map>
 #include <string>
-#include <variant>
 #include <memory>
 #include <vector>
-
-using Value = std::variant<double, std::string>;
-using Environment = std::unordered_map<std::string, Value>;
-struct Stmt;
+#include "value.hpp"
 
 class Interpreter {
 public:
     void interpret(const std::vector<std::shared_ptr<Stmt>>& statements);
-
-private:
     Environment environment;
 };
+
 
 #endif 

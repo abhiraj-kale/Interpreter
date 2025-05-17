@@ -1,12 +1,11 @@
 #pragma once
 #include <memory>
+#include <vector>
 #include <string>
 #include <iostream>
-#include <unordered_map>
-#include <variant>
 #include "expr.hpp"
+#include "value.hpp"
 
-using Value = std::variant<double, std::string>;
 using Environment = std::unordered_map<std::string, Value>;
 
 struct Stmt {
@@ -86,5 +85,26 @@ struct WhileStmt : public Stmt {
                 break;
             body->execute(env);
         }
+    }
+};
+
+struct FunctionStmt : public Stmt, public std::enable_shared_from_this<FunctionStmt> {
+    std::string name;
+    std::vector<std::string> params;
+    std::vector<std::shared_ptr<Stmt>> body;
+
+    FunctionStmt(std::string name, std::vector<std::string> params, std::vector<std::shared_ptr<Stmt>> body)
+        : name(std::move(name)), params(std::move(params)), body(std::move(body)) {}
+
+    void execute(Environment& env) override {
+    env[name] = std::static_pointer_cast<Stmt>(shared_from_this());
+    }
+};
+
+struct ReturnStmt : public Stmt {
+    std::shared_ptr<Expr> value;
+    ReturnStmt(std::shared_ptr<Expr> value) : value(value) {}
+    void execute(Environment& env) override {
+        throw value->evaluate(env);
     }
 };

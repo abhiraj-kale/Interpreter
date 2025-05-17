@@ -152,6 +152,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/expr.obj: src/expr.cpp.obj
+.PHONY : src/expr.obj
+
+# target to build an object file
+src/expr.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.obj
+.PHONY : src/expr.cpp.obj
+
+src/expr.i: src/expr.cpp.i
+.PHONY : src/expr.i
+
+# target to preprocess a source file
+src/expr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.i
+.PHONY : src/expr.cpp.i
+
+src/expr.s: src/expr.cpp.s
+.PHONY : src/expr.s
+
+# target to generate assembly for a file
+src/expr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.s
+.PHONY : src/expr.cpp.s
+
 src/interpreter.obj: src/interpreter.cpp.obj
 .PHONY : src/interpreter.obj
 
@@ -236,6 +260,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/expr.obj
+	@echo ... src/expr.i
+	@echo ... src/expr.s
 	@echo ... src/interpreter.obj
 	@echo ... src/interpreter.i
 	@echo ... src/interpreter.s

@@ -1,12 +1,15 @@
 #ifndef EXPR_HPP
 #define EXPR_HPP
 
+#pragma once
 #include <memory>
 #include <string>
-#include <unordered_map>
-#include <variant>
+#include <vector>
 #include <stdexcept>
-#include "interpreter.hpp"
+#include "value.hpp"
+
+struct Stmt;
+struct FunctionStmt; 
 
 struct Expr {
     virtual ~Expr() = default;
@@ -145,6 +148,15 @@ struct Unary : public Expr {
         }
         throw std::runtime_error("Unknown unary operator.");
     }
+};
+
+struct Call : public Expr {
+    std::string callee;
+    std::vector<std::shared_ptr<Expr>> arguments;
+    
+    Call(std::string callee, std::vector<std::shared_ptr<Expr>> args); // just declaration
+
+    Value evaluate(Environment& env) override;
 };
 
 #endif 
