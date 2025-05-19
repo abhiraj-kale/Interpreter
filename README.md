@@ -28,6 +28,9 @@ Each component is modular and easy to extend with features like functions, contr
 - **Print statements**:
   - `print x + y;`
   - `print "Result: " + x;`
+- **Control flow support:**
+  - `while` loops
+  - `for` loops
 - **Semicolon-terminated statements**
 - **REPL interface** for interactive command input
 - **Error handling** for:
@@ -53,13 +56,19 @@ When you run the interpreter executable, you'll see a `>` prompt.
 x = 10
 > print x == 10;
 1
+> for (let i = 0; i < 5; i = i + 1) print i;
+0
+1
+2
+3
+4
 ```
-## Pre-built Binaries v0.1.2
+## Pre-built Binaries v0.1.3
 
-A Windows .exe is available in the v0.1.2 release.
+A Windows .exe is available in the v0.1.3 release.
 
 Download:
-➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.2)
+➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.3)
 
 ## Installation
 
