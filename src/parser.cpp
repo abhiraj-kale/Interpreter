@@ -1,5 +1,6 @@
 #include "parser.hpp"
 #include <stdexcept>
+#include <iostream>
 
 std::shared_ptr<Stmt> Parser::parseStatement() {
     if (match({TokenType::LET, TokenType::VAR})) {
@@ -21,13 +22,11 @@ std::shared_ptr<Stmt> Parser::parseStatement() {
         consume(TokenType::LEFT_PAREN, "Expected '(' after 'if'.");
         auto condition = parseExpression();
         consume(TokenType::RIGHT_PAREN, "Expected ')' after if condition.");
-
         auto thenBranch = parseStatement();
         std::shared_ptr<Stmt> elseBranch = nullptr;
         if (match({TokenType::ELSE})) {
             elseBranch = parseStatement();
         }
-
         return std::make_shared<IfStmt>(condition, thenBranch, elseBranch);
     }
     if (match({TokenType::WHILE})) {
@@ -37,19 +36,76 @@ std::shared_ptr<Stmt> Parser::parseStatement() {
         auto body = parseStatement();
         return std::make_shared<WhileStmt>(condition, body);
     }
+    if (match({TokenType::FOR})) return parseForStatement();
     if (match({TokenType::FUN})) return parseFunction();
     if (match({TokenType::RETURN})) return parseReturn();
+
     auto expr = parseExpression();
     consume(TokenType::SEMICOLON, "Expected ';' after expression.");
     return std::make_shared<ExpressionStmt>(expr);
 }
 
+std::shared_ptr<Stmt> Parser::parseForStatement() {
+    consume(TokenType::LEFT_PAREN, "Expected '(' after 'for'.");
+
+    std::shared_ptr<Stmt> initializer;
+    if (match({TokenType::SEMICOLON})) {
+        initializer = nullptr;
+    } else if (match({TokenType::LET, TokenType::VAR})) {
+        Token nameToken = consume(TokenType::IDENTIFIER, "Expected variable name.");
+        consume(TokenType::EQUAL, "Expected '=' after variable name.");
+        auto initExpr = parseExpression();
+        consume(TokenType::SEMICOLON, "Expected ';' after variable declaration.");
+        initializer = std::make_shared<VarStmt>(nameToken.lexeme, initExpr);
+    } else {
+        auto initExpr = parseExpression();
+        consume(TokenType::SEMICOLON, "Expected ';' after loop initializer.");
+        initializer = std::make_shared<ExpressionStmt>(initExpr);
+    }
+
+    std::shared_ptr<Expr> condition = nullptr;
+    if (!check(TokenType::SEMICOLON)) {
+        condition = parseExpression();
+    }
+    consume(TokenType::SEMICOLON, "Expected ';' after loop condition.");
+
+    std::shared_ptr<Expr> increment = nullptr;
+    if (!check(TokenType::RIGHT_PAREN)) {
+        increment = parseExpression();
+    }
+    consume(TokenType::RIGHT_PAREN, "Expected ')' after for clauses.");
+
+    auto body = parseStatement();
+
+    if (increment) {
+        body = std::make_shared<BlockStmt>(std::vector<std::shared_ptr<Stmt>>{
+            body,
+            std::make_shared<ExpressionStmt>(increment)
+        });
+    }
+
+    if (!condition) {
+        condition = std::make_shared<Literal>(1.0);
+    }
+
+    body = std::make_shared<WhileStmt>(condition, body);
+
+    if (initializer) {
+        body = std::make_shared<BlockStmt>(std::vector<std::shared_ptr<Stmt>>{
+            initializer,
+            body
+        });
+    }
+
+    return body;
+}
+
 std::shared_ptr<Expr> Parser::parseExpression() {
-    return parseLogicOr();
+    return parseAssignment();
 }
 
 std::shared_ptr<Expr> Parser::parseAssignment() {
-    auto expr = parseEquality();
+    auto expr = parseLogicOr();
 
     if (match({TokenType::EQUAL})) {
         Token equals = previous();
@@ -65,39 +121,63 @@ std::shared_ptr<Expr> Parser::parseAssignment() {
     return expr;
 }
 
+std::shared_ptr<Expr> Parser::parseLogicOr() {
+    auto expr = parseLogicAnd();
+    while (match({TokenType::OR})) {
+        Token op = previous();
+        auto right = parseLogicAnd();
+        expr = std::make_shared<Binary>(expr, op.lexeme, right);
+    }
+    return expr;
+}
+
+std::shared_ptr<Expr> Parser::parseLogicAnd() {
+    auto expr = parseEquality();
+    while (match({TokenType::AND})) {
+        Token op = previous();
+        auto right = parseEquality();
+        expr = std::make_shared<Binary>(expr, op.lexeme, right);
+    }
+    return expr;
+}
+
 std::shared_ptr<Expr> Parser::parseEquality() {
     auto expr = parseComparison();
-
     while (match({TokenType::EQUAL_EQUAL, TokenType::BANG_EQUAL})) {
         Token op = previous();
         auto right = parseComparison();
         expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
-
     return expr;
 }
 
 std::shared_ptr<Expr> Parser::parseComparison() {
     auto expr = parseTerm();
-
     while (match({TokenType::GREATER, TokenType::GREATER_EQUAL, TokenType::LESS, TokenType::LESS_EQUAL})) {
         Token op = previous();
         auto right = parseTerm();
         expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
-
     return expr;
 }
 
 std::shared_ptr<Expr> Parser::parseTerm() {
     auto expr = parseFactor();
-
     while (match({TokenType::PLUS, TokenType::MINUS})) {
         Token op = previous();
         auto right = parseFactor();
         expr = std::make_shared<Binary>(expr, op.lexeme, right);
     }
+    return expr;
+}
 
+std::shared_ptr<Expr> Parser::parseFactor() {
+    auto expr = parseUnary();
+    while (match({TokenType::STAR, TokenType::SLASH})) {
+        Token op = previous();
+        auto right = parseUnary();
+        expr = std::make_shared<Binary>(expr, op.lexeme, right);
+    }
     return expr;
 }
 
@@ -110,34 +190,19 @@ std::shared_ptr<Expr> Parser::parseUnary() {
     return parsePrimary();
 }
 
-std::shared_ptr<Expr> Parser::parseFactor() {
-    auto expr = parseUnary();
-
-    while (match({TokenType::STAR, TokenType::SLASH})) {
-        Token op = previous();
-        auto right = parseUnary();
-        expr = std::make_shared<Binary>(expr, op.lexeme, right);
-    }
-    return expr;
-}
-
 std::shared_ptr<Expr> Parser::parsePrimary() {
     if (match({TokenType::NUMBER})) {
         return std::make_shared<Literal>(std::any_cast<double>(previous().literal));
     }
-
     if (match({TokenType::STRING})) {
         return std::make_shared<Literal>(std::any_cast<std::string>(previous().literal));
     }
-
     if (match({TokenType::TRUE})) {
-        return std::make_shared<Literal>(1.0); 
+        return std::make_shared<Literal>(1.0);
     }
-
     if (match({TokenType::FALSE})) {
-        return std::make_shared<Literal>(0.0); 
+        return std::make_shared<Literal>(0.0);
     }
-
     if (match({TokenType::LEFT_PAREN})) {
         auto expr = parseExpression();
         consume(TokenType::RIGHT_PAREN, "Expect ')' after expression.");
@@ -169,26 +234,6 @@ std::vector<std::shared_ptr<Stmt>> Parser::parseBlock() {
     return statements;
 }
 
-std::shared_ptr<Expr> Parser::parseLogicOr() {
-    auto expr = parseLogicAnd();
-    while (match({TokenType::OR})) {
-        Token op = previous();
-        auto right = parseLogicAnd();
-        expr = std::make_shared<Binary>(expr, op.lexeme, right);
-    }
-    return expr;
-}
-
-std::shared_ptr<Expr> Parser::parseLogicAnd() {
-    auto expr = parseEquality();
-    while (match({TokenType::AND})) {
-        Token op = previous();
-        auto right = parseEquality();
-        expr = std::make_shared<Binary>(expr, op.lexeme, right);
-    }
-    return expr;
-}
-
 std::shared_ptr<Stmt> Parser::parseFunction() {
     Token nameToken = consume(TokenType::IDENTIFIER, "Expected function name.");
     consume(TokenType::LEFT_PAREN, "Expected '(' after function name.");
@@ -199,9 +244,11 @@ std::shared_ptr<Stmt> Parser::parseFunction() {
             params.push_back(consume(TokenType::IDENTIFIER, "Expected parameter name.").lexeme);
         } while (match({TokenType::COMMA}));
     }
+
     consume(TokenType::RIGHT_PAREN, "Expected ')' after parameters.");
     consume(TokenType::LEFT_BRACE, "Expected '{' before function body.");
     auto body = parseBlock();
+
     return std::make_shared<FunctionStmt>(nameToken.lexeme, params, body);
 }
 
@@ -210,6 +257,8 @@ std::shared_ptr<Stmt> Parser::parseReturn() {
     consume(TokenType::SEMICOLON, "Expected ';' after return value.");
     return std::make_shared<ReturnStmt>(value);
 }
+
+// Helpers
 
 bool Parser::match(const std::vector<TokenType>& types) {
     for (const auto& type : types) {

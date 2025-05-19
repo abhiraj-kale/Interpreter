@@ -28,6 +28,7 @@ private:
     std::shared_ptr<Expr> parseLogicOr();
     std::shared_ptr<Expr> parseLogicAnd();
     std::shared_ptr<Expr> parseCall();
+    std::shared_ptr<Stmt> parseForStatement();
     bool match(const std::vector<TokenType>& types);
     bool check(TokenType type);
     Token advance();

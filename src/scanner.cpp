@@ -43,7 +43,6 @@ void Scanner::scanToken() {
         case '+': addToken(TokenType::PLUS); break;
         case '-': addToken(TokenType::MINUS); break;
         case '*': addToken(TokenType::STAR); break;
-        case '/': addToken(TokenType::SLASH); break;
         case '=':
             addToken(match('=') ? TokenType::EQUAL_EQUAL : TokenType::EQUAL);
             break;
@@ -58,6 +57,13 @@ void Scanner::scanToken() {
         case ';': addToken(TokenType::SEMICOLON); break;
         case ',':
             tokens.emplace_back(TokenType::COMMA, ",", std::any(), line);
+            break;
+        case '/':
+            if (match('/')) {
+                while (peek() != '\n' && !isAtEnd()) advance();
+            } else {
+                addToken(TokenType::SLASH);
+            }
             break;
         case ' ':
         case '\r':
@@ -134,6 +140,10 @@ void Scanner::identifier() {
     else if (text == "if") addToken(TokenType::IF);
     else if (text == "else") addToken(TokenType::ELSE);
     else if (text == "while") addToken(TokenType::WHILE);
+    else if (text == "for") {
+        addToken(TokenType::FOR);
+    }
+
     else {
         addToken(TokenType::IDENTIFIER, text);
     }
