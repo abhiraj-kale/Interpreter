@@ -1,4 +1,5 @@
 #include "parser.hpp"
+#include "token.hpp"
 #include <stdexcept>
 #include <iostream>
 
@@ -100,6 +101,17 @@ std::shared_ptr<Stmt> Parser::parseForStatement() {
     return body;
 }
 
+std::shared_ptr<Expr> Parser::parsePostfix() {
+    std::shared_ptr<Expr> expr = parsePrimary();
+
+    while (match({TokenType::INCREMENT}) || match({TokenType::DECREMENT})) {
+        Token op = previous();
+        expr = std::make_shared<Postfix>(expr, op);
+    }
+
+    return expr;
+}
+
 std::shared_ptr<Expr> Parser::parseExpression() {
     return parseAssignment();
 }
@@ -182,12 +194,12 @@ std::shared_ptr<Expr> Parser::parseFactor() {
 }
 
 std::shared_ptr<Expr> Parser::parseUnary() {
-    if (match({TokenType::BANG, TokenType::MINUS})) {
-        std::string op = previous().lexeme;
+    if (match({TokenType::BANG, TokenType::MINUS, TokenType::PLUS_PLUS, TokenType::MINUS_MINUS})) {
+        Token op = previous();
         auto right = parseUnary();
         return std::make_shared<Unary>(op, right);
     }
-    return parsePrimary();
+    return parsePostfix();
 }
 
 std::shared_ptr<Expr> Parser::parsePrimary() {
@@ -257,8 +269,6 @@ std::shared_ptr<Stmt> Parser::parseReturn() {
     consume(TokenType::SEMICOLON, "Expected ';' after return value.");
     return std::make_shared<ReturnStmt>(value);
 }
-
-// Helpers
 
 bool Parser::match(const std::vector<TokenType>& types) {
     for (const auto& type : types) {

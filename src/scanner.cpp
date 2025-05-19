@@ -40,8 +40,20 @@ bool Scanner::match(char expected) {
 void Scanner::scanToken() {
     char c = advance();
     switch (c) {
-        case '+': addToken(TokenType::PLUS); break;
-        case '-': addToken(TokenType::MINUS); break;
+            case '+':
+        if (match('+')) {
+            addToken(TokenType::INCREMENT);
+        } else {
+            addToken(TokenType::PLUS);
+        }
+        break;
+        case '-':
+        if (match('-')) {
+            addToken(TokenType::DECREMENT);
+        } else {
+            addToken(TokenType::MINUS);
+        }
+        break;
         case '*': addToken(TokenType::STAR); break;
         case '=':
             addToken(match('=') ? TokenType::EQUAL_EQUAL : TokenType::EQUAL);

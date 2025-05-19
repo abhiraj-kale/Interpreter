@@ -1,6 +1,8 @@
+#include "token.hpp"
 #include "expr.hpp"
 #include "stmt.hpp"
-#include "expr.hpp"
+#include <memory>
+#include <stdexcept>
 
 Call::Call(std::string callee, std::vector<std::shared_ptr<Expr>> args)
     : callee(std::move(callee)), arguments(std::move(args)) {}
@@ -28,5 +30,34 @@ Value Call::evaluate(Environment& env) {
         return returnVal;
     }
 
-    return {}; // default return value
+    return {};
+}
+
+Value Postfix::evaluate(Environment& env) {
+    auto var = std::dynamic_pointer_cast<Variable>(operand);
+    if (!var) {
+        throw std::runtime_error("Postfix operator must be applied to a variable.");
+    }
+
+    auto it = env.find(var->name);
+    if (it == env.end()) {
+        throw std::runtime_error("Undefined variable '" + var->name + "'.");
+    }
+
+    Value current = it->second;
+
+    if (!std::holds_alternative<double>(current)) {
+        throw std::runtime_error("Postfix operators can only be applied to numbers.");
+    }
+
+    double val = std::get<double>(current);
+
+    if (this->op.type == TokenType::INCREMENT) {
+        env[var->name] = val + 1;
+        return val; 
+    } else if (this->op.type == TokenType::DECREMENT) {
+        env[var->name] = val - 1;
+        return val; 
+    }
+    throw std::runtime_error("Unknown postfix operator.");
 }

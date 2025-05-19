@@ -7,6 +7,7 @@
 #include <vector>
 #include <stdexcept>
 #include "value.hpp"
+#include "token.hpp"
 
 struct Stmt;
 struct FunctionStmt; 
@@ -127,20 +128,20 @@ struct Binary : public Expr {
     }
 };
 struct Unary : public Expr {
-    std::string op;
+   Token op;
     std::shared_ptr<Expr> right;
 
-    Unary(const std::string& op, std::shared_ptr<Expr> right)
-        : op(op), right(right) {}
+    Unary(const Token& op, std::shared_ptr<Expr> right)
+    : op(op), right(right) {}
 
     Value evaluate(Environment& env) override {
         Value val = right->evaluate(env);
-        if (op == "-") {
+        if (op.lexeme == "-") {
             if (std::holds_alternative<double>(val)) {
                 return -std::get<double>(val);
             }
             throw std::runtime_error("Unary '-' requires a number.");
-        } else if (op == "!") {
+        } else if (op.lexeme == "!") {
             if (std::holds_alternative<double>(val)) {
                 return std::get<double>(val) == 0.0 ? 1.0 : 0.0;
             }
@@ -154,9 +155,19 @@ struct Call : public Expr {
     std::string callee;
     std::vector<std::shared_ptr<Expr>> arguments;
     
-    Call(std::string callee, std::vector<std::shared_ptr<Expr>> args); // just declaration
+    Call(std::string callee, std::vector<std::shared_ptr<Expr>> args); 
 
     Value evaluate(Environment& env) override;
 };
 
 #endif 
+
+struct Postfix : public Expr {
+    std::shared_ptr<Expr> operand;
+    Token op;
+
+    Postfix(std::shared_ptr<Expr> operand, Token op)
+        : operand(std::move(operand)), op(std::move(op)) {}
+
+    Value evaluate(Environment& env) override;
+};
