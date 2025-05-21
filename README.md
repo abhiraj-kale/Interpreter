@@ -1,14 +1,13 @@
 # Release v0.1.3
 
-A Windows .exe is available in the v0.1.3 release.
+A Windows .exe is available in the [v0.1.3 release](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.3).
 
 Download:
 ➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.3)
 
 # Interpreter Built Using C++ for a Custom Language
 
-A lightweight C++ interpreter that parses and evaluates arithmetic and comparison expressions with support for variables, string literals, functions, and basic statements. It provides a simple REPL (Read-Eval-Print Loop) interface for interactive execution.
----
+ A lightweight C++ interpreter that parses and evaluates arithmetic and comparison expressions with support for variables, string literals, functions, and basic statements. It provides a simple REPL (Read-Eval-Print Loop) interface for interactive execution.
 
 ## Architecture Overview
 
