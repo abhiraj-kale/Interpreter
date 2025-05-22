@@ -1,9 +1,9 @@
-# Release v0.1.3
+# Release v0.1.4
 
-A Windows .exe is available in the [v0.1.3 release](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.3).
+A Windows .exe is available in the [v0.1.4 release](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.4).
 
 Download:
-➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.3)
+➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.4)
 
 # Interpreter Built Using C++ for a Custom Language
 
