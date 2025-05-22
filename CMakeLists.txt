@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(include)
 
 set(INTERPRETER_SOURCES
+    main.cpp
     src/scanner.cpp
     src/parser.cpp
     src/interpreter.cpp
@@ -34,3 +35,10 @@ target_link_libraries(InterpreterTests
 
 include(GoogleTest)
 gtest_discover_tests(InterpreterTests)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(Interpreter PRIVATE --coverage -O0 -g)
+    target_link_options(Interpreter PRIVATE --coverage)
+    target_compile_options(InterpreterTests PRIVATE --coverage -O0 -g)
+    target_link_options(InterpreterTests PRIVATE --coverage)
+endif()

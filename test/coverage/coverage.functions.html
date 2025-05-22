@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="theme-green">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>GCC Code Coverage Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="coverage.css"/>
+  </head>
+
+  <body>
+
+    <header>
+      <h1>GCC Code Coverage Report</h1>
+      <hr/>
+      <div class="summary">
+<div>
+  <table class="legend">
+    <tr>
+      <th scope="row">Directory:</th>
+      <td>./</td>
+    </tr>
+    <tr>
+      <th scope="row">Date:</th>
+      <td>2025-05-23 01:32:45</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <table class="coverage">
+    <tr>
+      <th></th>
+      <th scope="col">Exec</th>
+      <th scope="col">Total</th>
+      <th scope="col">Coverage</th>
+    </tr>
+    <tr>
+      <th scope="row">Lines:</th>
+      <td>806</td>
+      <td>845</td>
+      <td class="coverage-high">95.4%</td>
+    </tr>
+    <tr>
+      <th scope="row">Functions:</th>
+      <td>185</td>
+      <td>185</td>
+      <td class="coverage-high">100.0%</td>
+    </tr>
+    <tr>
+      <th scope="row">Branches:</th>
+      <td>1119</td>
+      <td>3071</td>
+      <td class="coverage-low">36.4%</td>
+    </tr>
+  </table>
+</div>
+      </div>
+      <hr/>
+    </header>
+    <nav>
+    </nav>
+    <main>
+<table class="listOfFunctions">
+  <tr>
+    <th>Function (File:Line)</th>
+    <th>Call count</th>
+    <th>Block coverage</th>
+  </tr>
+  <tr><td><a href="coverage.expr.cpp.d09e00be9695031baf02bfb407628336.html#l7">Call::Call(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::vector&lt;std::shared_ptr&lt;Expr&gt;, std::allocator&lt;std::shared_ptr&lt;Expr&gt; &gt; &gt;) (src\expr.cpp:7)</a></td><td>called 13 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr.cpp.d09e00be9695031baf02bfb407628336.html#l10">Call::evaluate(std::unordered_map&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::variant&lt;double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::shared_ptr&lt;Stmt&gt; &gt;, std::hash&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::equal_to&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::allocator&lt;std::pair&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const, std::variant&lt;double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::shared_ptr&lt;Stmt&gt; &gt; &gt; &gt; &gt;&amp;) (src\expr.cpp:10)</a></td><td>called 12 times</td><td>63.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l16">CallExprTest_CallsFunctionAndReturnsValue_Test::CallExprTest_CallsFunctionAndReturnsValue_Test() (test\expr_test.cpp:16)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l16">CallExprTest_CallsFunctionAndReturnsValue_Test::TestBody() (test\expr_test.cpp:16)</a></td><td>called 3 times</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l16">CallExprTest_CallsFunctionAndReturnsValue_Test::~CallExprTest_CallsFunctionAndReturnsValue_Test() (test\expr_test.cpp:16)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l37">CallExprTest_ThrowsIfNotFunction_Test::CallExprTest_ThrowsIfNotFunction_Test() (test\expr_test.cpp:37)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l37">CallExprTest_ThrowsIfNotFunction_Test::TestBody() (test\expr_test.cpp:37)</a></td><td>called 3 times</td><td>34.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l37">CallExprTest_ThrowsIfNotFunction_Test::~CallExprTest_ThrowsIfNotFunction_Test() (test\expr_test.cpp:37)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l31">CallExprTest_ThrowsOnUndefinedFunction_Test::CallExprTest_ThrowsOnUndefinedFunction_Test() (test\expr_test.cpp:31)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l31">CallExprTest_ThrowsOnUndefinedFunction_Test::TestBody() (test\expr_test.cpp:31)</a></td><td>called 3 times</td><td>31.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l31">CallExprTest_ThrowsOnUndefinedFunction_Test::~CallExprTest_ThrowsOnUndefinedFunction_Test() (test\expr_test.cpp:31)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l12">DummyFunction::DummyFunction(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::vector&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::allocator&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; &gt; const&amp;, std::vector&lt;std::shared_ptr&lt;Stmt&gt;, std::allocator&lt;std::shared_ptr&lt;Stmt&gt; &gt; &gt; const&amp;) (test\expr_test.cpp:12)</a></td><td>called 3 times</td><td>60.0%</td></tr>
+  <tr><td><a href="coverage.interpreter.cpp.04c817cfc61f840cb288aad079939f6c.html#l4">Interpreter::interpret(std::vector&lt;std::shared_ptr&lt;Stmt&gt;, std::allocator&lt;std::shared_ptr&lt;Stmt&gt; &gt; &gt; const&amp;) (src\interpreter.cpp:4)</a></td><td>called 12 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l27">InterpreterTest_EvaluatesArithmeticExpression_Test::InterpreterTest_EvaluatesArithmeticExpression_Test() (test\interpreter_test.cpp:27)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l27">InterpreterTest_EvaluatesArithmeticExpression_Test::TestBody() (test\interpreter_test.cpp:27)</a></td><td>called 3 times</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l27">InterpreterTest_EvaluatesArithmeticExpression_Test::~InterpreterTest_EvaluatesArithmeticExpression_Test() (test\interpreter_test.cpp:27)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l72">InterpreterTest_HandlesFunctionDefinitionAndCall_Test::InterpreterTest_HandlesFunctionDefinitionAndCall_Test() (test\interpreter_test.cpp:72)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l72">InterpreterTest_HandlesFunctionDefinitionAndCall_Test::TestBody() (test\interpreter_test.cpp:72)</a></td><td>called 3 times</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l72">InterpreterTest_HandlesFunctionDefinitionAndCall_Test::~InterpreterTest_HandlesFunctionDefinitionAndCall_Test() (test\interpreter_test.cpp:72)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l39">InterpreterTest_HandlesVariableDeclarationAndUsage_Test::InterpreterTest_HandlesVariableDeclarationAndUsage_Test() (test\interpreter_test.cpp:39)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l39">InterpreterTest_HandlesVariableDeclarationAndUsage_Test::TestBody() (test\interpreter_test.cpp:39)</a></td><td>called 3 times</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l39">InterpreterTest_HandlesVariableDeclarationAndUsage_Test::~InterpreterTest_HandlesVariableDeclarationAndUsage_Test() (test\interpreter_test.cpp:39)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l54">InterpreterTest_HandlesWhileLoop_Test::InterpreterTest_HandlesWhileLoop_Test() (test\interpreter_test.cpp:54)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l54">InterpreterTest_HandlesWhileLoop_Test::TestBody() (test\interpreter_test.cpp:54)</a></td><td>called 3 times</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l54">InterpreterTest_HandlesWhileLoop_Test::~InterpreterTest_HandlesWhileLoop_Test() (test\interpreter_test.cpp:54)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l296">Parser::advance() (src\parser.cpp:296)</a></td><td>called 440 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l291">Parser::check(TokenType) (src\parser.cpp:291)</a></td><td>called 3194 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l301">Parser::consume(TokenType, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (src\parser.cpp:301)</a></td><td>called 164 times</td><td>89.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l306">Parser::isAtEnd() (src\parser.cpp:306)</a></td><td>called 3750 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l281">Parser::match(std::vector&lt;TokenType, std::allocator&lt;TokenType&gt; &gt; const&amp;) (src\parser.cpp:281)</a></td><td>called 1910 times</td><td>93.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l249">Parser::parse() (src\parser.cpp:249)</a></td><td>called 48 times</td><td>87.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l119">Parser::parseAssignment() (src\parser.cpp:119)</a></td><td>called 89 times</td><td>75.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l240">Parser::parseBlock() (src\parser.cpp:240)</a></td><td>called 10 times</td><td>68.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l166">Parser::parseComparison() (src\parser.cpp:166)</a></td><td>called 94 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l156">Parser::parseEquality() (src\parser.cpp:156)</a></td><td>called 91 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l115">Parser::parseExpression() (src\parser.cpp:115)</a></td><td>called 83 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l186">Parser::parseFactor() (src\parser.cpp:186)</a></td><td>called 126 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l49">Parser::parseForStatement() (src\parser.cpp:49)</a></td><td>called 2 times</td><td>49.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l257">Parser::parseFunction() (src\parser.cpp:257)</a></td><td>called 6 times</td><td>52.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l146">Parser::parseLogicAnd() (src\parser.cpp:146)</a></td><td>called 90 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l136">Parser::parseLogicOr() (src\parser.cpp:136)</a></td><td>called 89 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l104">Parser::parsePostfix() (src\parser.cpp:104)</a></td><td>called 132 times</td><td>58.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l205">Parser::parsePrimary() (src\parser.cpp:205)</a></td><td>called 132 times</td><td>54.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l275">Parser::parseReturn() (src\parser.cpp:275)</a></td><td>called 7 times</td><td>60.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l6">Parser::parseStatement() (src\parser.cpp:6)</a></td><td>called 83 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l176">Parser::parseTerm() (src\parser.cpp:176)</a></td><td>called 103 times</td><td>59.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l196">Parser::parseUnary() (src\parser.cpp:196)</a></td><td>called 133 times</td><td>60.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l310">Parser::peek() (src\parser.cpp:310)</a></td><td>called 6927 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser.cpp.bd8f167953cc43fb7cba7d420fbd1d48.html#l314">Parser::previous() (src\parser.cpp:314)</a></td><td>called 619 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l152">ParserTest_ParsesArithmeticExpressions_Test::ParserTest_ParsesArithmeticExpressions_Test() (test\parser_test.cpp:152)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l152">ParserTest_ParsesArithmeticExpressions_Test::TestBody() (test\parser_test.cpp:152)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l152">ParserTest_ParsesArithmeticExpressions_Test::~ParserTest_ParsesArithmeticExpressions_Test() (test\parser_test.cpp:152)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l127">ParserTest_ParsesAssignmentExpression_Test::ParserTest_ParsesAssignmentExpression_Test() (test\parser_test.cpp:127)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l127">ParserTest_ParsesAssignmentExpression_Test::TestBody() (test\parser_test.cpp:127)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l127">ParserTest_ParsesAssignmentExpression_Test::~ParserTest_ParsesAssignmentExpression_Test() (test\parser_test.cpp:127)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l52">ParserTest_ParsesBlockStatement_Test::ParserTest_ParsesBlockStatement_Test() (test\parser_test.cpp:52)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l52">ParserTest_ParsesBlockStatement_Test::TestBody() (test\parser_test.cpp:52)</a></td><td>called 1 time</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l52">ParserTest_ParsesBlockStatement_Test::~ParserTest_ParsesBlockStatement_Test() (test\parser_test.cpp:52)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l144">ParserTest_ParsesEqualityAndComparison_Test::ParserTest_ParsesEqualityAndComparison_Test() (test\parser_test.cpp:144)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l144">ParserTest_ParsesEqualityAndComparison_Test::TestBody() (test\parser_test.cpp:144)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l144">ParserTest_ParsesEqualityAndComparison_Test::~ParserTest_ParsesEqualityAndComparison_Test() (test\parser_test.cpp:144)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l85">ParserTest_ParsesForLoopWithAllClauses_Test::ParserTest_ParsesForLoopWithAllClauses_Test() (test\parser_test.cpp:85)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l85">ParserTest_ParsesForLoopWithAllClauses_Test::TestBody() (test\parser_test.cpp:85)</a></td><td>called 1 time</td><td>39.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l85">ParserTest_ParsesForLoopWithAllClauses_Test::~ParserTest_ParsesForLoopWithAllClauses_Test() (test\parser_test.cpp:85)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l96">ParserTest_ParsesForLoopWithEmptyClauses_Test::ParserTest_ParsesForLoopWithEmptyClauses_Test() (test\parser_test.cpp:96)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l96">ParserTest_ParsesForLoopWithEmptyClauses_Test::TestBody() (test\parser_test.cpp:96)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l96">ParserTest_ParsesForLoopWithEmptyClauses_Test::~ParserTest_ParsesForLoopWithEmptyClauses_Test() (test\parser_test.cpp:96)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l217">ParserTest_ParsesFunctionCall_Test::ParserTest_ParsesFunctionCall_Test() (test\parser_test.cpp:217)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l217">ParserTest_ParsesFunctionCall_Test::TestBody() (test\parser_test.cpp:217)</a></td><td>called 1 time</td><td>37.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l217">ParserTest_ParsesFunctionCall_Test::~ParserTest_ParsesFunctionCall_Test() (test\parser_test.cpp:217)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l105">ParserTest_ParsesFunctionDeclaration_Test::ParserTest_ParsesFunctionDeclaration_Test() (test\parser_test.cpp:105)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l105">ParserTest_ParsesFunctionDeclaration_Test::TestBody() (test\parser_test.cpp:105)</a></td><td>called 1 time</td><td>34.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l105">ParserTest_ParsesFunctionDeclaration_Test::~ParserTest_ParsesFunctionDeclaration_Test() (test\parser_test.cpp:105)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l209">ParserTest_ParsesGrouping_Test::ParserTest_ParsesGrouping_Test() (test\parser_test.cpp:209)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l209">ParserTest_ParsesGrouping_Test::TestBody() (test\parser_test.cpp:209)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l209">ParserTest_ParsesGrouping_Test::~ParserTest_ParsesGrouping_Test() (test\parser_test.cpp:209)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l59">ParserTest_ParsesIfElseStatement_Test::ParserTest_ParsesIfElseStatement_Test() (test\parser_test.cpp:59)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l59">ParserTest_ParsesIfElseStatement_Test::TestBody() (test\parser_test.cpp:59)</a></td><td>called 1 time</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l59">ParserTest_ParsesIfElseStatement_Test::~ParserTest_ParsesIfElseStatement_Test() (test\parser_test.cpp:59)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l69">ParserTest_ParsesIfWithoutElse_Test::ParserTest_ParsesIfWithoutElse_Test() (test\parser_test.cpp:69)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l69">ParserTest_ParsesIfWithoutElse_Test::TestBody() (test\parser_test.cpp:69)</a></td><td>called 1 time</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l69">ParserTest_ParsesIfWithoutElse_Test::~ParserTest_ParsesIfWithoutElse_Test() (test\parser_test.cpp:69)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l23">ParserTest_ParsesLetDeclaration_Test::ParserTest_ParsesLetDeclaration_Test() (test\parser_test.cpp:23)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l23">ParserTest_ParsesLetDeclaration_Test::TestBody() (test\parser_test.cpp:23)</a></td><td>called 1 time</td><td>36.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l23">ParserTest_ParsesLetDeclaration_Test::~ParserTest_ParsesLetDeclaration_Test() (test\parser_test.cpp:23)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l184">ParserTest_ParsesLiteralTrueFalse_Test::ParserTest_ParsesLiteralTrueFalse_Test() (test\parser_test.cpp:184)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l184">ParserTest_ParsesLiteralTrueFalse_Test::TestBody() (test\parser_test.cpp:184)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l184">ParserTest_ParsesLiteralTrueFalse_Test::~ParserTest_ParsesLiteralTrueFalse_Test() (test\parser_test.cpp:184)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l136">ParserTest_ParsesLogicalOrAndAnd_Test::ParserTest_ParsesLogicalOrAndAnd_Test() (test\parser_test.cpp:136)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l136">ParserTest_ParsesLogicalOrAndAnd_Test::TestBody() (test\parser_test.cpp:136)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l136">ParserTest_ParsesLogicalOrAndAnd_Test::~ParserTest_ParsesLogicalOrAndAnd_Test() (test\parser_test.cpp:136)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l227">ParserTest_ParsesMultipleStatements_Test::ParserTest_ParsesMultipleStatements_Test() (test\parser_test.cpp:227)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l227">ParserTest_ParsesMultipleStatements_Test::TestBody() (test\parser_test.cpp:227)</a></td><td>called 1 time</td><td>39.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l227">ParserTest_ParsesMultipleStatements_Test::~ParserTest_ParsesMultipleStatements_Test() (test\parser_test.cpp:227)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l176">ParserTest_ParsesPostfixDecrement_Test::ParserTest_ParsesPostfixDecrement_Test() (test\parser_test.cpp:176)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l176">ParserTest_ParsesPostfixDecrement_Test::TestBody() (test\parser_test.cpp:176)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l176">ParserTest_ParsesPostfixDecrement_Test::~ParserTest_ParsesPostfixDecrement_Test() (test\parser_test.cpp:176)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l168">ParserTest_ParsesPostfixIncrement_Test::ParserTest_ParsesPostfixIncrement_Test() (test\parser_test.cpp:168)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l168">ParserTest_ParsesPostfixIncrement_Test::TestBody() (test\parser_test.cpp:168)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l168">ParserTest_ParsesPostfixIncrement_Test::~ParserTest_ParsesPostfixIncrement_Test() (test\parser_test.cpp:168)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l43">ParserTest_ParsesPrintStatement_Test::ParserTest_ParsesPrintStatement_Test() (test\parser_test.cpp:43)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l43">ParserTest_ParsesPrintStatement_Test::TestBody() (test\parser_test.cpp:43)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l43">ParserTest_ParsesPrintStatement_Test::~ParserTest_ParsesPrintStatement_Test() (test\parser_test.cpp:43)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l118">ParserTest_ParsesReturnStatement_Test::ParserTest_ParsesReturnStatement_Test() (test\parser_test.cpp:118)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l118">ParserTest_ParsesReturnStatement_Test::TestBody() (test\parser_test.cpp:118)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l118">ParserTest_ParsesReturnStatement_Test::~ParserTest_ParsesReturnStatement_Test() (test\parser_test.cpp:118)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l200">ParserTest_ParsesStringLiteral_Test::ParserTest_ParsesStringLiteral_Test() (test\parser_test.cpp:200)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l200">ParserTest_ParsesStringLiteral_Test::TestBody() (test\parser_test.cpp:200)</a></td><td>called 1 time</td><td>39.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l200">ParserTest_ParsesStringLiteral_Test::~ParserTest_ParsesStringLiteral_Test() (test\parser_test.cpp:200)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l160">ParserTest_ParsesUnaryExpressions_Test::ParserTest_ParsesUnaryExpressions_Test() (test\parser_test.cpp:160)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l160">ParserTest_ParsesUnaryExpressions_Test::TestBody() (test\parser_test.cpp:160)</a></td><td>called 1 time</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l160">ParserTest_ParsesUnaryExpressions_Test::~ParserTest_ParsesUnaryExpressions_Test() (test\parser_test.cpp:160)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l33">ParserTest_ParsesVarDeclaration_Test::ParserTest_ParsesVarDeclaration_Test() (test\parser_test.cpp:33)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l33">ParserTest_ParsesVarDeclaration_Test::TestBody() (test\parser_test.cpp:33)</a></td><td>called 1 time</td><td>36.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l33">ParserTest_ParsesVarDeclaration_Test::~ParserTest_ParsesVarDeclaration_Test() (test\parser_test.cpp:33)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l76">ParserTest_ParsesWhileLoop_Test::ParserTest_ParsesWhileLoop_Test() (test\parser_test.cpp:76)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l76">ParserTest_ParsesWhileLoop_Test::TestBody() (test\parser_test.cpp:76)</a></td><td>called 1 time</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l76">ParserTest_ParsesWhileLoop_Test::~ParserTest_ParsesWhileLoop_Test() (test\parser_test.cpp:76)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l248">ParserTest_ThrowsOnExpectedExpression_Test::ParserTest_ThrowsOnExpectedExpression_Test() (test\parser_test.cpp:248)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l248">ParserTest_ThrowsOnExpectedExpression_Test::TestBody() (test\parser_test.cpp:248)</a></td><td>called 1 time</td><td>35.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l248">ParserTest_ThrowsOnExpectedExpression_Test::~ParserTest_ThrowsOnExpectedExpression_Test() (test\parser_test.cpp:248)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l236">ParserTest_ThrowsOnInvalidAssignmentTarget_Test::ParserTest_ThrowsOnInvalidAssignmentTarget_Test() (test\parser_test.cpp:236)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l236">ParserTest_ThrowsOnInvalidAssignmentTarget_Test::TestBody() (test\parser_test.cpp:236)</a></td><td>called 1 time</td><td>35.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l236">ParserTest_ThrowsOnInvalidAssignmentTarget_Test::~ParserTest_ThrowsOnInvalidAssignmentTarget_Test() (test\parser_test.cpp:236)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l240">ParserTest_ThrowsOnMissingSemicolon_Test::ParserTest_ThrowsOnMissingSemicolon_Test() (test\parser_test.cpp:240)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l240">ParserTest_ThrowsOnMissingSemicolon_Test::TestBody() (test\parser_test.cpp:240)</a></td><td>called 1 time</td><td>35.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l240">ParserTest_ThrowsOnMissingSemicolon_Test::~ParserTest_ThrowsOnMissingSemicolon_Test() (test\parser_test.cpp:240)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l244">ParserTest_ThrowsOnUnexpectedToken_Test::ParserTest_ThrowsOnUnexpectedToken_Test() (test\parser_test.cpp:244)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l244">ParserTest_ThrowsOnUnexpectedToken_Test::TestBody() (test\parser_test.cpp:244)</a></td><td>called 1 time</td><td>35.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l244">ParserTest_ThrowsOnUnexpectedToken_Test::~ParserTest_ThrowsOnUnexpectedToken_Test() (test\parser_test.cpp:244)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr.cpp.d09e00be9695031baf02bfb407628336.html#l36">Postfix::evaluate(std::unordered_map&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::variant&lt;double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::shared_ptr&lt;Stmt&gt; &gt;, std::hash&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::equal_to&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::allocator&lt;std::pair&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const, std::variant&lt;double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::shared_ptr&lt;Stmt&gt; &gt; &gt; &gt; &gt;&amp;) (src\expr.cpp:36)</a></td><td>called 15 times</td><td>63.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l56">PostfixExprTest_DecrementsVariable_Test::PostfixExprTest_DecrementsVariable_Test() (test\expr_test.cpp:56)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l56">PostfixExprTest_DecrementsVariable_Test::TestBody() (test\expr_test.cpp:56)</a></td><td>called 3 times</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l56">PostfixExprTest_DecrementsVariable_Test::~PostfixExprTest_DecrementsVariable_Test() (test\expr_test.cpp:56)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l44">PostfixExprTest_IncrementsVariable_Test::PostfixExprTest_IncrementsVariable_Test() (test\expr_test.cpp:44)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l44">PostfixExprTest_IncrementsVariable_Test::TestBody() (test\expr_test.cpp:44)</a></td><td>called 3 times</td><td>40.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l44">PostfixExprTest_IncrementsVariable_Test::~PostfixExprTest_IncrementsVariable_Test() (test\expr_test.cpp:44)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l76">PostfixExprTest_ThrowsOnNonNumericVariable_Test::PostfixExprTest_ThrowsOnNonNumericVariable_Test() (test\expr_test.cpp:76)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l76">PostfixExprTest_ThrowsOnNonNumericVariable_Test::TestBody() (test\expr_test.cpp:76)</a></td><td>called 3 times</td><td>38.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l76">PostfixExprTest_ThrowsOnNonNumericVariable_Test::~PostfixExprTest_ThrowsOnNonNumericVariable_Test() (test\expr_test.cpp:76)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l68">PostfixExprTest_ThrowsOnNonVariableOperand_Test::PostfixExprTest_ThrowsOnNonVariableOperand_Test() (test\expr_test.cpp:68)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l68">PostfixExprTest_ThrowsOnNonVariableOperand_Test::TestBody() (test\expr_test.cpp:68)</a></td><td>called 3 times</td><td>35.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l68">PostfixExprTest_ThrowsOnNonVariableOperand_Test::~PostfixExprTest_ThrowsOnNonVariableOperand_Test() (test\expr_test.cpp:68)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l85">PostfixExprTest_ThrowsOnUnknownOperator_Test::PostfixExprTest_ThrowsOnUnknownOperator_Test() (test\expr_test.cpp:85)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l85">PostfixExprTest_ThrowsOnUnknownOperator_Test::TestBody() (test\expr_test.cpp:85)</a></td><td>called 3 times</td><td>37.0%</td></tr>
+  <tr><td><a href="coverage.expr_test.cpp.fcf1c9f63c3975cb4753d6679319f90f.html#l85">PostfixExprTest_ThrowsOnUnknownOperator_Test::~PostfixExprTest_ThrowsOnUnknownOperator_Test() (test\expr_test.cpp:85)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l23">Scanner::addToken(TokenType, std::any) (src\scanner.cpp:23)</a></td><td>called 501 times</td><td>71.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l19">Scanner::advance() (src\scanner.cpp:19)</a></td><td>called 1581 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l127">Scanner::identifier() (src\scanner.cpp:127)</a></td><td>called 185 times</td><td>67.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l168">Scanner::isAlpha(char) (src\scanner.cpp:168)</a></td><td>called 730 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l172">Scanner::isAlphaNumeric(char) (src\scanner.cpp:172)</a></td><td>called 545 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l15">Scanner::isAtEnd() (src\scanner.cpp:15)</a></td><td>called 2093 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l164">Scanner::isDigit(char) (src\scanner.cpp:164)</a></td><td>called 563 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l33">Scanner::match(char) (src\scanner.cpp:33)</a></td><td>called 81 times</td><td>88.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l115">Scanner::number() (src\scanner.cpp:115)</a></td><td>called 78 times</td><td>82.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l28">Scanner::peek() (src\scanner.cpp:28)</a></td><td>called 758 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l40">Scanner::scanToken() (src\scanner.cpp:40)</a></td><td>called 1164 times</td><td>56.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l5">Scanner::scanTokens() (src\scanner.cpp:5)</a></td><td>called 66 times</td><td>79.0%</td></tr>
+  <tr><td><a href="coverage.scanner.cpp.590af44628799ea844eba0240698e6ce.html#l103">Scanner::string() (src\scanner.cpp:103)</a></td><td>called 4 times</td><td>66.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l21">ScannerTest_DoubleCharacterTokens_Test::ScannerTest_DoubleCharacterTokens_Test() (test\scanner_test.cpp:21)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l21">ScannerTest_DoubleCharacterTokens_Test::TestBody() (test\scanner_test.cpp:21)</a></td><td>called 3 times</td><td>30.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l21">ScannerTest_DoubleCharacterTokens_Test::~ScannerTest_DoubleCharacterTokens_Test() (test\scanner_test.cpp:21)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l50">ScannerTest_IdentifiersAndKeywords_Test::ScannerTest_IdentifiersAndKeywords_Test() (test\scanner_test.cpp:50)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l50">ScannerTest_IdentifiersAndKeywords_Test::TestBody() (test\scanner_test.cpp:50)</a></td><td>called 3 times</td><td>41.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l50">ScannerTest_IdentifiersAndKeywords_Test::~ScannerTest_IdentifiersAndKeywords_Test() (test\scanner_test.cpp:50)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l40">ScannerTest_NumberLiteral_Test::ScannerTest_NumberLiteral_Test() (test\scanner_test.cpp:40)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l40">ScannerTest_NumberLiteral_Test::TestBody() (test\scanner_test.cpp:40)</a></td><td>called 3 times</td><td>33.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l40">ScannerTest_NumberLiteral_Test::~ScannerTest_NumberLiteral_Test() (test\scanner_test.cpp:40)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l4">ScannerTest_SingleCharacterTokens_Test::ScannerTest_SingleCharacterTokens_Test() (test\scanner_test.cpp:4)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l4">ScannerTest_SingleCharacterTokens_Test::TestBody() (test\scanner_test.cpp:4)</a></td><td>called 3 times</td><td>27.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l4">ScannerTest_SingleCharacterTokens_Test::~ScannerTest_SingleCharacterTokens_Test() (test\scanner_test.cpp:4)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l32">ScannerTest_StringLiteral_Test::ScannerTest_StringLiteral_Test() (test\scanner_test.cpp:32)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l32">ScannerTest_StringLiteral_Test::TestBody() (test\scanner_test.cpp:32)</a></td><td>called 3 times</td><td>36.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l32">ScannerTest_StringLiteral_Test::~ScannerTest_StringLiteral_Test() (test\scanner_test.cpp:32)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l63">ScannerTest_Whitespace_Test::ScannerTest_Whitespace_Test() (test\scanner_test.cpp:63)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l63">ScannerTest_Whitespace_Test::TestBody() (test\scanner_test.cpp:63)</a></td><td>called 3 times</td><td>32.0%</td></tr>
+  <tr><td><a href="coverage.scanner_test.cpp.11668728fa3fd2f27554f98dc7203d33.html#l63">ScannerTest_Whitespace_Test::~ScannerTest_Whitespace_Test() (test\scanner_test.cpp:63)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l18">StdoutCapture::start() (test\interpreter_test.cpp:18)</a></td><td>called 12 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l21">StdoutCapture::stop[abi:cxx11]() (test\interpreter_test.cpp:21)</a></td><td>called 12 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.main.cpp.118fcbaaba162ba17933c7893247df3a.html#l65">main (main.cpp:65)</a></td><td>called 54 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l7">parseSingleStatement(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (test\parser_test.cpp:7)</a></td><td>called 27 times</td><td>51.0%</td></tr>
+  <tr><td><a href="coverage.interpreter_test.cpp.4ce1764a3f4fc7ea537ff6b1899cbb73.html#l7">parseSource(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (test\interpreter_test.cpp:7)</a></td><td>called 12 times</td><td>71.0%</td></tr>
+  <tr><td><a href="coverage.parser_test.cpp.730162395231142237570b22e233192c.html#l16">parseStatements(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (test\parser_test.cpp:16)</a></td><td>called 1 time</td><td>71.0%</td></tr>
+  <tr><td><a href="coverage.main.cpp.118fcbaaba162ba17933c7893247df3a.html#l9">printInstructions(std::ostream&amp;) (main.cpp:9)</a></td><td>called 54 times</td><td>100.0%</td></tr>
+  <tr><td><a href="coverage.main.cpp.118fcbaaba162ba17933c7893247df3a.html#l28">runRepl(std::istream&amp;, std::ostream&amp;) (main.cpp:28)</a></td><td>called 54 times</td><td>14.0%</td></tr>
+</table>
+
+      <hr/>
+    </main>
+    <footer>
+      Generated by: <a href="http://gcovr.com/en/8.3">GCOVR (Version 8.3)</a>
+    </footer>
+  </body>
+</html>
