@@ -64,6 +64,16 @@ CMAKE_BINARY_DIR = "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	"C:\Program Files\CMake\bin\ctest.exe" $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -83,6 +93,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -128,6 +183,71 @@ Interpreter/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/build
 .PHONY : Interpreter/fast
 
+#=============================================================================
+# Target rules for targets named InterpreterTests
+
+# Build rule for target.
+InterpreterTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 InterpreterTests
+.PHONY : InterpreterTests
+
+# fast build rule for target.
+InterpreterTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/build
+.PHONY : InterpreterTests/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock.dir\build.make external/googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest.dir\build.make external/googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest_main.dir\build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -158,6 +278,7 @@ src/expr.obj: src/expr.cpp.obj
 # target to build an object file
 src/expr.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/expr.cpp.obj
 .PHONY : src/expr.cpp.obj
 
 src/expr.i: src/expr.cpp.i
@@ -166,6 +287,7 @@ src/expr.i: src/expr.cpp.i
 # target to preprocess a source file
 src/expr.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/expr.cpp.i
 .PHONY : src/expr.cpp.i
 
 src/expr.s: src/expr.cpp.s
@@ -174,6 +296,7 @@ src/expr.s: src/expr.cpp.s
 # target to generate assembly for a file
 src/expr.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/expr.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/expr.cpp.s
 .PHONY : src/expr.cpp.s
 
 src/interpreter.obj: src/interpreter.cpp.obj
@@ -182,6 +305,7 @@ src/interpreter.obj: src/interpreter.cpp.obj
 # target to build an object file
 src/interpreter.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/interpreter.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/interpreter.cpp.obj
 .PHONY : src/interpreter.cpp.obj
 
 src/interpreter.i: src/interpreter.cpp.i
@@ -190,6 +314,7 @@ src/interpreter.i: src/interpreter.cpp.i
 # target to preprocess a source file
 src/interpreter.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/interpreter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/interpreter.cpp.i
 .PHONY : src/interpreter.cpp.i
 
 src/interpreter.s: src/interpreter.cpp.s
@@ -198,6 +323,7 @@ src/interpreter.s: src/interpreter.cpp.s
 # target to generate assembly for a file
 src/interpreter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/interpreter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/interpreter.cpp.s
 .PHONY : src/interpreter.cpp.s
 
 src/parser.obj: src/parser.cpp.obj
@@ -206,6 +332,7 @@ src/parser.obj: src/parser.cpp.obj
 # target to build an object file
 src/parser.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/parser.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/parser.cpp.obj
 .PHONY : src/parser.cpp.obj
 
 src/parser.i: src/parser.cpp.i
@@ -214,6 +341,7 @@ src/parser.i: src/parser.cpp.i
 # target to preprocess a source file
 src/parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/parser.cpp.i
 .PHONY : src/parser.cpp.i
 
 src/parser.s: src/parser.cpp.s
@@ -222,6 +350,7 @@ src/parser.s: src/parser.cpp.s
 # target to generate assembly for a file
 src/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/parser.cpp.s
 .PHONY : src/parser.cpp.s
 
 src/scanner.obj: src/scanner.cpp.obj
@@ -230,6 +359,7 @@ src/scanner.obj: src/scanner.cpp.obj
 # target to build an object file
 src/scanner.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/scanner.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/scanner.cpp.obj
 .PHONY : src/scanner.cpp.obj
 
 src/scanner.i: src/scanner.cpp.i
@@ -238,6 +368,7 @@ src/scanner.i: src/scanner.cpp.i
 # target to preprocess a source file
 src/scanner.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/scanner.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/scanner.cpp.i
 .PHONY : src/scanner.cpp.i
 
 src/scanner.s: src/scanner.cpp.s
@@ -246,7 +377,104 @@ src/scanner.s: src/scanner.cpp.s
 # target to generate assembly for a file
 src/scanner.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/src/scanner.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/src/scanner.cpp.s
 .PHONY : src/scanner.cpp.s
+
+test/expr_test.obj: test/expr_test.cpp.obj
+.PHONY : test/expr_test.obj
+
+# target to build an object file
+test/expr_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/expr_test.cpp.obj
+.PHONY : test/expr_test.cpp.obj
+
+test/expr_test.i: test/expr_test.cpp.i
+.PHONY : test/expr_test.i
+
+# target to preprocess a source file
+test/expr_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/expr_test.cpp.i
+.PHONY : test/expr_test.cpp.i
+
+test/expr_test.s: test/expr_test.cpp.s
+.PHONY : test/expr_test.s
+
+# target to generate assembly for a file
+test/expr_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/expr_test.cpp.s
+.PHONY : test/expr_test.cpp.s
+
+test/interpreter_test.obj: test/interpreter_test.cpp.obj
+.PHONY : test/interpreter_test.obj
+
+# target to build an object file
+test/interpreter_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/interpreter_test.cpp.obj
+.PHONY : test/interpreter_test.cpp.obj
+
+test/interpreter_test.i: test/interpreter_test.cpp.i
+.PHONY : test/interpreter_test.i
+
+# target to preprocess a source file
+test/interpreter_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/interpreter_test.cpp.i
+.PHONY : test/interpreter_test.cpp.i
+
+test/interpreter_test.s: test/interpreter_test.cpp.s
+.PHONY : test/interpreter_test.s
+
+# target to generate assembly for a file
+test/interpreter_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/interpreter_test.cpp.s
+.PHONY : test/interpreter_test.cpp.s
+
+test/parser_test.obj: test/parser_test.cpp.obj
+.PHONY : test/parser_test.obj
+
+# target to build an object file
+test/parser_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/parser_test.cpp.obj
+.PHONY : test/parser_test.cpp.obj
+
+test/parser_test.i: test/parser_test.cpp.i
+.PHONY : test/parser_test.i
+
+# target to preprocess a source file
+test/parser_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/parser_test.cpp.i
+.PHONY : test/parser_test.cpp.i
+
+test/parser_test.s: test/parser_test.cpp.s
+.PHONY : test/parser_test.s
+
+# target to generate assembly for a file
+test/parser_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/parser_test.cpp.s
+.PHONY : test/parser_test.cpp.s
+
+test/scanner_test.obj: test/scanner_test.cpp.obj
+.PHONY : test/scanner_test.obj
+
+# target to build an object file
+test/scanner_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/scanner_test.cpp.obj
+.PHONY : test/scanner_test.cpp.obj
+
+test/scanner_test.i: test/scanner_test.cpp.i
+.PHONY : test/scanner_test.i
+
+# target to preprocess a source file
+test/scanner_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/scanner_test.cpp.i
+.PHONY : test/scanner_test.cpp.i
+
+test/scanner_test.s: test/scanner_test.cpp.s
+.PHONY : test/scanner_test.s
+
+# target to generate assembly for a file
+test/scanner_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/test/scanner_test.cpp.s
+.PHONY : test/scanner_test.cpp.s
 
 # Help Target
 help:
@@ -255,8 +483,18 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... test
 	@echo ... Interpreter
+	@echo ... InterpreterTests
+	@echo ... gmock
+	@echo ... gmock_main
+	@echo ... gtest
+	@echo ... gtest_main
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
@@ -272,6 +510,18 @@ help:
 	@echo ... src/scanner.obj
 	@echo ... src/scanner.i
 	@echo ... src/scanner.s
+	@echo ... test/expr_test.obj
+	@echo ... test/expr_test.i
+	@echo ... test/expr_test.s
+	@echo ... test/interpreter_test.obj
+	@echo ... test/interpreter_test.i
+	@echo ... test/interpreter_test.s
+	@echo ... test/parser_test.obj
+	@echo ... test/parser_test.i
+	@echo ... test/parser_test.s
+	@echo ... test/scanner_test.obj
+	@echo ... test/scanner_test.i
+	@echo ... test/scanner_test.s
 .PHONY : help
 
 

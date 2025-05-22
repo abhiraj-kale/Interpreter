@@ -12,6 +12,7 @@ class Parser {
 public:
     Parser(const std::vector<Token>& tokens) : tokens(tokens), current(0) {}
     std::shared_ptr<Stmt> parseStatement();
+    std::vector<std::shared_ptr<Stmt>> parse();
 
 private:
     std::shared_ptr<Expr> parseExpression();

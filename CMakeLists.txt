@@ -6,12 +6,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 
-set(SOURCES
-    main.cpp
+set(INTERPRETER_SOURCES
     src/scanner.cpp
     src/parser.cpp
     src/interpreter.cpp
     src/expr.cpp
 )
 
-add_executable(Interpreter ${SOURCES})
+add_executable(Interpreter main.cpp ${INTERPRETER_SOURCES})
+
+add_subdirectory(external/googletest)
+
+enable_testing()
+
+set(TEST_SOURCES
+    test/scanner_test.cpp
+    test/parser_test.cpp
+    test/interpreter_test.cpp
+    test/expr_test.cpp
+)
+
+add_executable(InterpreterTests ${TEST_SOURCES} ${INTERPRETER_SOURCES})
+
+target_link_libraries(InterpreterTests
+    gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(InterpreterTests)

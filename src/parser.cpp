@@ -246,6 +246,14 @@ std::vector<std::shared_ptr<Stmt>> Parser::parseBlock() {
     return statements;
 }
 
+std::vector<std::shared_ptr<Stmt>> Parser::parse() {
+    std::vector<std::shared_ptr<Stmt>> statements;
+    while (!isAtEnd()) {
+        statements.push_back(parseStatement());
+    }
+    return statements;
+}
+
 std::shared_ptr<Stmt> Parser::parseFunction() {
     Token nameToken = consume(TokenType::IDENTIFIER, "Expected function name.");
     consume(TokenType::LEFT_PAREN, "Expected '(' after function name.");

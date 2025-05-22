@@ -63,19 +63,91 @@ CMAKE_BINARY_DIR = "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out
 
 # The main recursive "all" target.
 all: CMakeFiles/Interpreter.dir/all
+all: CMakeFiles/InterpreterTests.dir/all
+all: external/googletest/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/Interpreter.dir/codegen
+codegen: CMakeFiles/InterpreterTests.dir/codegen
+codegen: external/googletest/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: external/googletest/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Interpreter.dir/clean
+clean: CMakeFiles/InterpreterTests.dir/clean
+clean: external/googletest/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory external/googletest
+
+# Recursive "all" directory target.
+external/googletest/all: external/googletest/googlemock/all
+.PHONY : external/googletest/all
+
+# Recursive "codegen" directory target.
+external/googletest/codegen: external/googletest/googlemock/codegen
+.PHONY : external/googletest/codegen
+
+# Recursive "preinstall" directory target.
+external/googletest/preinstall: external/googletest/googlemock/preinstall
+.PHONY : external/googletest/preinstall
+
+# Recursive "clean" directory target.
+external/googletest/clean: external/googletest/googlemock/clean
+.PHONY : external/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory external/googletest/googlemock
+
+# Recursive "all" directory target.
+external/googletest/googlemock/all: external/googletest/googlemock/CMakeFiles/gmock.dir/all
+external/googletest/googlemock/all: external/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+external/googletest/googlemock/all: external/googletest/googletest/all
+.PHONY : external/googletest/googlemock/all
+
+# Recursive "codegen" directory target.
+external/googletest/googlemock/codegen: external/googletest/googlemock/CMakeFiles/gmock.dir/codegen
+external/googletest/googlemock/codegen: external/googletest/googlemock/CMakeFiles/gmock_main.dir/codegen
+external/googletest/googlemock/codegen: external/googletest/googletest/codegen
+.PHONY : external/googletest/googlemock/codegen
+
+# Recursive "preinstall" directory target.
+external/googletest/googlemock/preinstall: external/googletest/googletest/preinstall
+.PHONY : external/googletest/googlemock/preinstall
+
+# Recursive "clean" directory target.
+external/googletest/googlemock/clean: external/googletest/googlemock/CMakeFiles/gmock.dir/clean
+external/googletest/googlemock/clean: external/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+external/googletest/googlemock/clean: external/googletest/googletest/clean
+.PHONY : external/googletest/googlemock/clean
+
+#=============================================================================
+# Directory level rules for directory external/googletest/googletest
+
+# Recursive "all" directory target.
+external/googletest/googletest/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+external/googletest/googletest/all: external/googletest/googletest/CMakeFiles/gtest_main.dir/all
+.PHONY : external/googletest/googletest/all
+
+# Recursive "codegen" directory target.
+external/googletest/googletest/codegen: external/googletest/googletest/CMakeFiles/gtest.dir/codegen
+external/googletest/googletest/codegen: external/googletest/googletest/CMakeFiles/gtest_main.dir/codegen
+.PHONY : external/googletest/googletest/codegen
+
+# Recursive "preinstall" directory target.
+external/googletest/googletest/preinstall:
+.PHONY : external/googletest/googletest/preinstall
+
+# Recursive "clean" directory target.
+external/googletest/googletest/clean: external/googletest/googletest/CMakeFiles/gtest.dir/clean
+external/googletest/googletest/clean: external/googletest/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : external/googletest/googletest/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Interpreter.dir
@@ -108,6 +180,168 @@ CMakeFiles/Interpreter.dir/codegen:
 CMakeFiles/Interpreter.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Interpreter.dir\build.make CMakeFiles/Interpreter.dir/clean
 .PHONY : CMakeFiles/Interpreter.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/InterpreterTests.dir
+
+# All Build rule for target.
+CMakeFiles/InterpreterTests.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+CMakeFiles/InterpreterTests.dir/all: external/googletest/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=7,8,9,10,11,12,13,14,15 "Built target InterpreterTests"
+.PHONY : CMakeFiles/InterpreterTests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/InterpreterTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 13
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/InterpreterTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
+.PHONY : CMakeFiles/InterpreterTests.dir/rule
+
+# Convenience name for target.
+InterpreterTests: CMakeFiles/InterpreterTests.dir/rule
+.PHONY : InterpreterTests
+
+# codegen rule for target.
+CMakeFiles/InterpreterTests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=7,8,9,10,11,12,13,14,15 "Finished codegen for target InterpreterTests"
+.PHONY : CMakeFiles/InterpreterTests.dir/codegen
+
+# clean rule for target.
+CMakeFiles/InterpreterTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InterpreterTests.dir\build.make CMakeFiles/InterpreterTests.dir/clean
+.PHONY : CMakeFiles/InterpreterTests.dir/clean
+
+#=============================================================================
+# Target rules for target external/googletest/googlemock/CMakeFiles/gmock.dir
+
+# All Build rule for target.
+external/googletest/googlemock/CMakeFiles/gmock.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock.dir\build.make external/googletest/googlemock/CMakeFiles/gmock.dir/depend
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock.dir\build.make external/googletest/googlemock/CMakeFiles/gmock.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=16,17 "Built target gmock"
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock.dir/all
+
+# Build rule for subdir invocation for target.
+external/googletest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 external/googletest/googlemock/CMakeFiles/gmock.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock.dir/rule
+
+# Convenience name for target.
+gmock: external/googletest/googlemock/CMakeFiles/gmock.dir/rule
+.PHONY : gmock
+
+# codegen rule for target.
+external/googletest/googlemock/CMakeFiles/gmock.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock.dir\build.make external/googletest/googlemock/CMakeFiles/gmock.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=16,17 "Finished codegen for target gmock"
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock.dir/codegen
+
+# clean rule for target.
+external/googletest/googlemock/CMakeFiles/gmock.dir/clean:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock.dir\build.make external/googletest/googlemock/CMakeFiles/gmock.dir/clean
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock.dir/clean
+
+#=============================================================================
+# Target rules for target external/googletest/googlemock/CMakeFiles/gmock_main.dir
+
+# All Build rule for target.
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googlemock/CMakeFiles/gmock.dir/all
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=18,19 "Built target gmock_main"
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+
+# Build rule for subdir invocation for target.
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 external/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
+
+# Convenience name for target.
+gmock_main: external/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
+.PHONY : gmock_main
+
+# codegen rule for target.
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=18,19 "Finished codegen for target gmock_main"
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock_main.dir/codegen
+
+# clean rule for target.
+external/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+.PHONY : external/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+
+#=============================================================================
+# Target rules for target external/googletest/googletest/CMakeFiles/gtest.dir
+
+# All Build rule for target.
+external/googletest/googletest/CMakeFiles/gtest.dir/all:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest.dir\build.make external/googletest/googletest/CMakeFiles/gtest.dir/depend
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest.dir\build.make external/googletest/googletest/CMakeFiles/gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=20,21 "Built target gtest"
+.PHONY : external/googletest/googletest/CMakeFiles/gtest.dir/all
+
+# Build rule for subdir invocation for target.
+external/googletest/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 external/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
+.PHONY : external/googletest/googletest/CMakeFiles/gtest.dir/rule
+
+# Convenience name for target.
+gtest: external/googletest/googletest/CMakeFiles/gtest.dir/rule
+.PHONY : gtest
+
+# codegen rule for target.
+external/googletest/googletest/CMakeFiles/gtest.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest.dir\build.make external/googletest/googletest/CMakeFiles/gtest.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=20,21 "Finished codegen for target gtest"
+.PHONY : external/googletest/googletest/CMakeFiles/gtest.dir/codegen
+
+# clean rule for target.
+external/googletest/googletest/CMakeFiles/gtest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest.dir\build.make external/googletest/googletest/CMakeFiles/gtest.dir/clean
+.PHONY : external/googletest/googletest/CMakeFiles/gtest.dir/clean
+
+#=============================================================================
+# Target rules for target external/googletest/googletest/CMakeFiles/gtest_main.dir
+
+# All Build rule for target.
+external/googletest/googletest/CMakeFiles/gtest_main.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest_main.dir\build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest_main.dir\build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=22,23 "Built target gtest_main"
+.PHONY : external/googletest/googletest/CMakeFiles/gtest_main.dir/all
+
+# Build rule for subdir invocation for target.
+external/googletest/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 external/googletest/googletest/CMakeFiles/gtest_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" 0
+.PHONY : external/googletest/googletest/CMakeFiles/gtest_main.dir/rule
+
+# Convenience name for target.
+gtest_main: external/googletest/googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : gtest_main
+
+# codegen rule for target.
+external/googletest/googletest/CMakeFiles/gtest_main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest_main.dir\build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Abhiraj Kale\OneDrive\Documents\C++\Interpreter\out\build\CMakePresets\CMakeFiles" --progress-num=22,23 "Finished codegen for target gtest_main"
+.PHONY : external/googletest/googletest/CMakeFiles/gtest_main.dir/codegen
+
+# clean rule for target.
+external/googletest/googletest/CMakeFiles/gtest_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f external\googletest\googletest\CMakeFiles\gtest_main.dir\build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : external/googletest/googletest/CMakeFiles/gtest_main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/out/build/CMakePresets/InterpreterTests[1]_tests.cmake")
+  include("C:/Users/Abhiraj Kale/OneDrive/Documents/C++/Interpreter/out/build/CMakePresets/InterpreterTests[1]_tests.cmake")
+else()
+  add_test(InterpreterTests_NOT_BUILT InterpreterTests_NOT_BUILT)
+endif()
