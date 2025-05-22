@@ -101,6 +101,31 @@ mkdir -p out/build && cd out/build
 # Configure the project
 cmake --preset default
 
-# Build the executable
+# Build the executable and tests
 cmake --build . --target Interpreter
+cmake --build . --target run_tests
 ```
+## How to Run Tests
+Tests are written using Google Test and cover all major components of the interpreter.
+
+To build and run the test suite:
+```
+cd out/build/CMakePresets
+InterpreterTests.exe
+```
+
+## How to Generate Code Coverage Reports
+After running tests or executing the interpreter, generate coverage reports with:
+
+```
+mkdir -p coverage
+gcovr -r . --html --html-details -o coverage/coverage.html --exclude '.*main\.cpp'
+```
+
+Open coverage/coverage.html in your browser to view detailed coverage reports. 
+
+`
+The file main.cpp is excluded from the coverage report because it primarily contains the REPL loop and program entry point, which are not easily unit tested. Most core logic is covered in modular components (scanner, parser, interpreter) which have full test coverage.
+`
+
+![Current Coverage](image.png)
