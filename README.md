@@ -3,7 +3,7 @@
 A Windows .exe is available in the [v0.1.4 release](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.4).
 
 Download:
-➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/tag/v0.1.4)
+➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/download/v0.1.4/Interpreter.exe)
 
 # Interpreter Built Using C++ for a Custom Language
 
