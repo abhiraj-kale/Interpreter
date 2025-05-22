@@ -1,13 +1,17 @@
-external/
+.vscode/
+
 build/
 out/
 cmake-build-debug/
 cmake-build-release/
-
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
 
+external/
 gtest/
 gmock/
+
+*.log
+*.tmp
