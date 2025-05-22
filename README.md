@@ -128,4 +128,4 @@ Open coverage/coverage.html in your browser to view detailed coverage reports.
 The file main.cpp is excluded from the coverage report because it primarily contains the REPL loop and program entry point, which are not easily unit tested. Most core logic is covered in modular components (scanner, parser, interpreter) which have full test coverage.
 `
 
-![Current Coverage](image.png)
+![Current Coverage](assets/image.png)
