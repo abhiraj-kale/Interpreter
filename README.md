@@ -5,9 +5,13 @@ A Windows .exe is available in the [v0.1.4 release](https://github.com/abhiraj-k
 Download:
 ➡️ [Interpreter.exe](https://github.com/abhiraj-kale/Interpreter/releases/download/v0.1.4/Interpreter.exe)
 
-# Interpreter Built Using C++ for a Custom Language
+# Codelang: an Interpreter Built From Scratch in C++
 
- A lightweight C++ interpreter that parses and evaluates arithmetic and comparison expressions with support for variables, string literals, functions, and basic statements. It provides a simple REPL (Read-Eval-Print Loop) interface for interactive execution.
+ A lightweight C++ interpreter for **Codelang**, a small custom language: it parses and evaluates arithmetic and comparison expressions with support for variables, string literals, functions (including recursion), and control flow. It provides both a REPL for interactive use and a script mode for running whole programs.
+
+> **Try it in your browser:** the [web playground](web/) is an online IDE for
+> Codelang with syntax highlighting, example programs, and one-click execution
+> against this exact interpreter running on the server.
 
 ## Architecture Overview
 

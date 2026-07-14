@@ -3,7 +3,10 @@
 #include "interpreter.hpp"
 #include "stmt.hpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
+#include <cstring>
 #include "repl.hpp"
 
 void printInstructions(std::ostream& out) {
@@ -62,6 +65,42 @@ int runRepl(std::istream& in, std::ostream& out) {
     return 0;
 }
 
-int main() {
+// Script mode: run a whole program at once, quietly (no banner, no prompts).
+// Unlike the REPL, the entire source is scanned and parsed as one unit via
+// Parser::parse(), so statements can span lines and blank lines are fine.
+// Used by the web IDE, and for running .clang script files from the CLI.
+int runScript(std::istream& in, std::ostream& out) {
+    std::stringstream buffer;
+    buffer << in.rdbuf();
+    std::string source = buffer.str();
+
+    try {
+        Scanner scanner(source);
+        std::vector<Token> tokens = scanner.scanTokens();
+        Parser parser(tokens);
+        std::vector<std::shared_ptr<Stmt>> statements = parser.parse();
+        Interpreter interpreter;
+        interpreter.interpret(statements);
+    } catch (const std::exception& e) {
+        out << "Error: " << e.what() << "\n";
+        return 1;
+    }
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc > 1) {
+        if (std::strcmp(argv[1], "--script") == 0) {
+            // program is piped in on stdin
+            return runScript(std::cin, std::cout);
+        }
+        // otherwise treat the argument as a script file path
+        std::ifstream file(argv[1]);
+        if (!file) {
+            std::cerr << "Error: could not open file '" << argv[1] << "'\n";
+            return 1;
+        }
+        return runScript(file, std::cout);
+    }
     return runRepl();
 }

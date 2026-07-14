@@ -1,0 +1,13 @@
+# Render blueprint - deploys the Codelang playground as one Docker web service.
+# Render dashboard: New + -> Blueprint -> connect this repo, and this file does the rest.
+services:
+  - type: web
+    name: codelang-playground
+    runtime: docker
+    plan: free
+    dockerfilePath: ./web/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "8001"
