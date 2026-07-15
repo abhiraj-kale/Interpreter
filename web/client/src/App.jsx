@@ -13,6 +13,7 @@ import { registerCodelang, LANG_ID } from './codelang'
 import { DEFAULT_PROGRAM, SNIPPETS } from './snippets'
 import OutputPanel from './components/OutputPanel'
 import ReferenceDialog from './components/ReferenceDialog'
+import IntroDialog from './components/IntroDialog'
 import { GOLD } from './theme'
 
 const REPO_URL = 'https://github.com/abhiraj-kale/Interpreter'
@@ -23,6 +24,7 @@ export default function App() {
   const [result, setResult] = useState(null)
   const [running, setRunning] = useState(false)
   const [refOpen, setRefOpen] = useState(false)
+  const [introOpen, setIntroOpen] = useState(true)
   const [activeSnippet, setActiveSnippet] = useState(null)
   const editorRef = useRef(null)
   const codeRef = useRef(code)
@@ -169,6 +171,8 @@ export default function App() {
       </Container>
 
       <ReferenceDialog open={refOpen} onClose={() => setRefOpen(false)} />
+      <IntroDialog open={introOpen} onClose={() => setIntroOpen(false)}
+        profileUrl={PROFILE_URL} repoUrl={REPO_URL} />
     </Box>
   )
 }
